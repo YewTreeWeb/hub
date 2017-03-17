@@ -8,6 +8,12 @@
 *.prproj
 *.aep
 
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+
 ### CodeKit ###
 # General CodeKit files to ignore
 config.codekit
