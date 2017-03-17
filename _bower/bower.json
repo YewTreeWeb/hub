@@ -1,0 +1,29 @@
+{
+  "name": "hub",
+  "description": "A place to learn and put all my code",
+  "main": "gulpfile.js",
+  "authors": [
+    "Mathew Teague"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "jekyll",
+    "gulp",
+    "sass",
+    "browsersync"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "hover": "Hover#^2.1.0",
+    "animate.css": "^3.5.2",
+    "bootstrap-sass": "^3.3.7"
+  }
+}
