@@ -14,17 +14,21 @@
     "del": ">=2.2.2",
     "flightplan": "^0.6.15",
     "gulp": ">=3.9.1",
-    "gulp-autoprefixer": ">=1.0.0",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": ">=6.1.2",
+    "gulp-cache": "^0.4.6",
+    "gulp-changed": "^2.0.0",
     "gulp-concat": ">=2.6.1",
     "gulp-imagemin": ">=3.1.1",
     "gulp-notify": ">=3.0.0",
     "gulp-plumber": ">=1.1.0",
     "gulp-pug": ">=3.3.0",
     "gulp-rename": ">=1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": ">=2.1.0",
     "gulp-sourcemaps": ">=2.4.1",
-    "gulp-uglify": ">=2.1.0"
+    "gulp-uglify": ">=2.1.0",
+    "gulp-useref": "^3.1.2"
   },
   "repository": "git@github.com:YewTreeWeb/hub.git",
   "keywords": [

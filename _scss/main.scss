@@ -1,6 +1,30 @@
-@import "reset";
-@import "syntax";
+/**
+  1 - Assets
+      - Bootstrap
+      - Syntax
+      - Hover
+      - Animate.css
+      - Font Awesome
+  2 - Custom Assets
+      - Custom Mixins
+      - Custom Variables
+      - Layouts
+      - Responsive
+  3 - Pages
+      - Homepage
+**/
 
-body {
-    background: white;
-}
+/*------------------------------------
+  1 - Assets
+------------------------------------*/
+@import "assets/assets";
+
+/*------------------------------------
+  2 - Custom Assets
+------------------------------------*/
+@import "custom-assets/custom-assets";
+
+/*------------------------------------
+  3 - Pages
+------------------------------------*/
+@import "pages/child-pages";

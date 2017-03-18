@@ -1,10 +1,33 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var sass        = require('gulp-sass');
-var prefix      = require('gulp-autoprefixer');
-var cp          = require('child_process');
+var gulp = require('gulp'),
+// Compile SCSS
+sass = require('gulp-sass'),
+autoprefixer = require('gulp-autoprefixer'),
+// Compile JS
+uglify = require('gulp-uglify'),
+babel  = require('gulp-babel'),
+// Add Source Maps to files
+sourcemaps = require('gulp-sourcemaps'),
+// Compress Images
+imagemin = require('gulp-imagemin'),
+cache = require('gulp-cache'),
+// Detect changes and errors
+plumber = require('gulp-plumber'),
+changed = require('gulp-changed'),
+notify = require("gulp-notify"),
+// Rename files on compile
+rename = require('gulp-rename'),
+// Build processes
+replace = require('gulp-replace'),
+useref = require('gulp-useref'),
+concat = require('gulp-concat'),
+del = require('del'),
+// Reload Browser
+browserSync = require('browser-sync'),
+reload = browserSync.reload,
+// Jekyll
+cp = require('child_process');
+jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
-var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
