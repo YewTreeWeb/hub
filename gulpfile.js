@@ -10,6 +10,7 @@ csscomb = require( 'gulp-csscomb' ),
 uglify = require( 'gulp-uglify' ),
 babel  = require( 'gulp-babel' ),
 // Compile HTML
+pug = require( 'gulp-pug' ),
 htmlmin = require( 'gulp-htmlmin' ),
 // Add Source Maps to files
 sourcemaps = require( 'gulp-sourcemaps' ),
@@ -18,7 +19,6 @@ imagemin = require( 'gulp-imagemin' ),
 cache = require( 'gulp-cache' ),
 // Detect changes and errors
 plumber = require( 'gulp-plumber' ),
-changed = require( 'gulp-changed' ),
 notify = require( 'gulp-notify' ),
 // Rename files on compile
 rename = require( 'gulp-rename' ),
@@ -68,13 +68,13 @@ gulp.task( 'jekyll-build', function ( done ) {
 Rebuild Jekyll & do page reload
 ---------------*/
 gulp.task( 'jekyll-rebuild', [ 'jekyll-build' ], function() {
-  reload;
+  browserSync.reload();
 } );
 
 /**
 * Wait for jekyll-build, then launch the Server
 */
-gulp.task( 'browser-sync', [ 'jekyll-build' ], function() {
+gulp.task( 'browser-sync', [ 'sass', 'js', 'pug', 'jekyll-build' ], function() {
   browserSync( {
     server: {
       baseDir: '_site'
@@ -92,7 +92,6 @@ gulp.task( 'sass', function () {
   return gulp.src( [ '_scss/**/*.scss', '_sass/**/*.sass' ] )
   .pipe( plumber() )
   .pipe( sass( {
-    includePaths: [ 'scss' ],
     outputStyle: 'nested'
   } ).on( 'error', handleErrors ) )
   .pipe( rucksack( {
@@ -134,6 +133,16 @@ gulp.task( 'image', function() {
 } );
 
 /*---------------
+Pug
+---------------*/
+gulp.task( 'pug', function(){
+  return gulp.src( '_pug/*.pug' )
+  .pipe( pug() )
+  .pipe( gulp.dest( '_includes' ) )
+  .pipe( reload( { stream:true } ) )
+} )
+
+/*---------------
 Watch
 ---------------*/
 /**
@@ -143,8 +152,9 @@ Watch
 gulp.task( 'watch', function () {
   gulp.watch( [ '_scss/**/*.scss', '_sass/**/*.sass' ], [ 'sass' ] );
   gulp.watch( 'js/**/*.js', [ 'js' ] );
+  gulp.watch( '_pug/*.pug', [ 'pug' ] );
   gulp.watch( 'images/**/*.+(png|jpg|jpeg|gif|svg)', [ 'image' ] );
-  gulp.watch( [ '*.html', '_layouts/*.html', '_posts/*', '_includes/*.html' ], [ 'jekyll-rebuild' ]);
+  gulp.watch( [ '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html' ], [ 'jekyll-rebuild' ]);
 } );
 
 /*---------------
@@ -155,13 +165,16 @@ Build
 * Run the HTML min then complete the build
 */
 
+gulp.task( 'build:clean', function( cb ){
+  return del( [ '_site/js', '_site/css' ] , cb );
+} );
+
 gulp.task( 'useref', function(){
-  return gulp.src( [ '*.html', '_layouts/*.html', '_includes/*.html' ] )
+  return gulp.src( '_includes/*.html' )
   .pipe( useref() )
   .pipe( gulpif( '*.js', uglify() ) )
   .pipe( gulpif( '*.css', cssnano() ) )
-  .pipe( gulpif( '*.js', gulp.dest( '_site/js' ) ) )
-  .pipe( gulpif( '*.css', gulp.dest( '_site/css' ) ) );
+  .pipe( gulp.dest( 'build' ) );
 } );
 /*
 gulp.task( 'build:copy', function(){
@@ -197,9 +210,7 @@ gulp.task( 'build:htmlmin', function(){
   .pipe( gulp.dest( '_site' ) );
 } );
 
-gulp.task( 'build', [ 'useref', 'build:htmlmin' ], function(){
-  .pipe( notify( { message: 'Build task complete' } ) )
-} );
+gulp.task( 'build', [ 'useref', 'build:htmlmin' ] );
 
 /**
 * Default task, running just `gulp` will compile the sass, js, images, the jekyll site, launch BrowserSync & watch files.
