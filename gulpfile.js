@@ -40,6 +40,18 @@ var messages = {
 };
 
 /*---------------
+Config
+---------------*/
+var config = {
+  move: [
+    '_bower/bower_components/jquery/dist/jquery.min.js',
+    '_bower/bower_components/jquery-migrate/jquery-migrate.min.js',
+    '_bower/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+    '_bower/bower_components/animate.css/animate.css'
+  ]
+};
+
+/*---------------
 Error notification
 ---------------*/
 function handleErrors() {
@@ -141,6 +153,16 @@ gulp.task( 'pug', function(){
   .pipe( gulp.dest( '_includes' ) )
   .pipe( reload( { stream:true } ) )
 } )
+
+/*---------------
+Move Bower
+---------------*/
+gulp.task( 'bower:move', function() {
+  return gulp.src( config.move )
+  .pipe( gulpif( '*.js', gulp.dest( 'js' ) ) )
+  .pipe( gulpif( '*.scss', gulp.dest( '_scss/assets' ) ) )
+  .pipe( gulpif( '*.css', gulp.dest( 'css' ) ) )
+} );
 
 /*---------------
 Watch

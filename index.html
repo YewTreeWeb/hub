@@ -43,7 +43,7 @@ title: YewTree Hub
             {{ post.date | date: "of %B %Y" }}
           </small>
         </h3>
-        <p>{{ post.excerpt | remove: 'image' }}</p>
+        <div class="excerpt">{{ post.excerpt }}</div>
         <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ post.url }}">Read More</a></button>
       </div>
     </div>
