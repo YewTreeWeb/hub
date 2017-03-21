@@ -1,0 +1,19 @@
+#hero
+  .jumbotron
+    background: url(/images/work.jpg) no-repeat
+    background-size: cover
+    background-position: center
+    @include size(100%,100vh)
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      @include size(100%,100%)
+      background-color: rgba($black,.45)
+    .hero-container
+      @include centerPosition
+      h1, p
+        color: $white
+      h1
+        margin: 0 0 2%

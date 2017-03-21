@@ -1,1 +1,22 @@
-<header class="header"><h1 class="title"><a href="{{ site.baseurl }}">{{ site.name }}</a></h1><a class="extra" href="{{ site.baseurl }}">home</a></header>
+<header id="hero">
+  <div class="jumbotron">
+    <div class="hero-container container">
+      <h1 class="title text-center">
+        {% if page.path contains '_posts' %}
+        Useful links
+        {% else %}
+        {{ page.title }}
+        {% endif %}
+      </h1>
+      <p class="lead text-center">
+        {% if page.url == "/blog.html" or page.path contains '_posts' %}
+        ...for when you need help and inspiration.
+        {% elsif page.areas or page.type %}
+        ...into the lab
+        {% else %}
+        ...because everybody needs a place to learn... and CODE!
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</header>
