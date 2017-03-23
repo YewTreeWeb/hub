@@ -24,3 +24,8 @@ $(function () {
   $("iframe").addClass("embed-responsive-item");
   $("iframe").parent().addClass('embed-responsive embed-responsive-16by9');
 });
+
+/*-- excerpt image --*/
+$(function () {
+  $('.excerpt img').remove();
+});

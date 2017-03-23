@@ -1,0 +1,110 @@
+/*------------------------------
+Screen Size
+------------------------------*/
+
+// Extra large screen / wide desktop
+$screen-xl:                  1560px !default;
+$screen-xl-min:              $screen-xl !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-xl-desktop:          $screen-xl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-lg-max:              ($screen-xl-min - 1) !default;
+
+// Large screen / wide desktop
+$container-extralarge-desktop: ($screen-xl - $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-xl:                 $container-extralarge-desktop !default;
+
+// Super large screen / wide desktop
+$screen-sl:                  1760px !default;
+$screen-sl-min:              $screen-sl !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-sl-desktop:          $screen-sl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xl-max:              ($screen-sl-min - 1) !default;
+
+// Large screen / wide desktop
+$container-superlarge-desktop: ($screen-sl - $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-sl:                 $container-superlarge-desktop !default;
+
+/*------------------------------
+Grid
+------------------------------*/
+
+.container-xl {
+  @include container-fixed;
+
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}
+
+// Extra large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-xl-min) {
+  @include make-grid(xl);
+}
+
+.container-sl {
+  @include container-fixed;
+
+  @media (min-width: $screen-sl-min) {
+    width: $container-sl;
+  }
+}
+
+// Extra large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-sl-min) {
+  @include make-grid(sl);
+}
+
+/*------------------------------
+Colours
+------------------------------*/
+$white:  $body-bg !default;
+$black:  $gray-base !default;
+
+/*------------------------------
+Font
+------------------------------*/
+$font: $font-family-base !default;
+$headers: $font-family-serif !default;
+$sans: $font-family-sans-serif !default;
+
+/*------------------------------
+Font Sizes
+------------------------------*/
+
+//headings
+$h1:  $font-size-h1 !default;
+$h2:  $font-size-h2 !default;
+$h3:  $font-size-h3 !default;
+$h4:  $font-size-h4 !default;
+$h5:  $font-size-h5 !default;
+$h6:  $font-size-h6 !default;
+
+//non-headings
+$font-size:  $font-size-base !default;
+$font-lg:    $font-size-large !default;
+$font-md:    $font-lg - 2 !default;
+$font-sm:    $font-size-small !default;
+$font-xs:    $font-sm - 2 !default;
+
+/*------------------------------
+Global Elements
+------------------------------*/
+.no-padding{
+  padding: 0;
+}
+.clearfix{
+  clear: both;
+  display: block;
+}

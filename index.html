@@ -3,31 +3,36 @@ layout: default
 title: YewTree Hub
 ---
 
-<div id="home" class="container-fluid no-padding">
+<div id="home" class="container-fluid">
   <section id="pages" class="row">
-  {% for page in site.pages %}
-    {% if page.type == "area" %}
-    <div class="col-sm-6 col-xs-12">
-      <h3>{{ page.title }}</h3>
-      <p>{{ page.excerpt }}</p>
-      <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
-    </div>
-    {% endif %}
-  {% endfor %}
+    <ul class="areas">
+      {% for page in site.pages %}
+        {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
+        {% if page.type == "area" %}
+        <li class="area">
+          <div class="content{% if area == 'even' %} pull-right{% else %} pull-left{% endif %}">
+            <h3>{{ page.title }}</h3>
+            <p>{{ page.excerpt }}</p>
+            <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
+          </div>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
   </section>
-  {% if site.posts != "null" %}
+  {% if site.posts %}
   <section id="posts" class="row">
     {% for post in site.posts limit: 3 %}
-    <div class="col-xs-12 clearfix">
+
+    <div class="col-xs-12 no-padding">
       <div class="col-sm-6 col-xs-12 {% cycle '', 'pull-right', '' %}">
-        {% assign images = post.content | split:"<img " %}
-        {% for image in images %}
-          {% if image contains 'src=' %}
-            {% assign imageMarkup = image | split:">" | first %}
-            <img {{ imageMarkup }}>
-            {% break %}
-          {% endif %}
-        {% endfor %}
+        {% if post.featured_image %}
+          {% for image in post.featured_image %}
+          <img src="{{ image.url }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
+          {% endfor %}
+        {% else %}
+          <img src="/images/work.jpg" title="no image" alt="{{ site.name }}"/>
+        {% endif %}
       </div>
       <div class="col-sm-6 col-xs-12 {% cycle '', 'pull-left', '' %}">
         <h3>
@@ -47,6 +52,7 @@ title: YewTree Hub
         <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ post.url }}">Read More</a></button>
       </div>
     </div>
+
     {% endfor %}
   </section>
   {% endif %}

@@ -101,7 +101,7 @@ Sass
 * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
 */
 gulp.task( 'sass', function () {
-  return gulp.src( [ '_scss/**/*.scss', '_sass/**/*.sass' ] )
+  return gulp.src( '_scss/**/*.scss' )
   .pipe( plumber() )
   .pipe( sass( {
     outputStyle: 'nested'
@@ -172,7 +172,7 @@ Watch
 * Watch html/md files, run jekyll & reload BrowserSync
 */
 gulp.task( 'watch', function () {
-  gulp.watch( [ '_scss/**/*.scss', '_sass/**/*.sass' ], [ 'sass' ] );
+  gulp.watch( '_scss/**/*.scss', [ 'sass' ] );
   gulp.watch( 'js/**/*.js', [ 'js' ] );
   gulp.watch( '_pug/*.pug', [ 'pug' ] );
   gulp.watch( 'images/**/*.+(png|jpg|jpeg|gif|svg)', [ 'image' ] );
