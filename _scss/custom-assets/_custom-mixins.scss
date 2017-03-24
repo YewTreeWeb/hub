@@ -141,3 +141,14 @@
 
   }
 }
+
+//header styling
+$headings: ( h1: $h1, h2: $h2, h3: $h3 );
+
+@each $heading, $size in $headings{
+  #{$heading}{
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}

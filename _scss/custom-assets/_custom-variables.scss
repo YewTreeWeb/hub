@@ -71,6 +71,7 @@ Colours
 ------------------------------*/
 $white:  $body-bg !default;
 $black:  $gray-base !default;
+$silver: #dcdcdc !default;
 
 /*------------------------------
 Font
@@ -78,11 +79,20 @@ Font
 $font: $font-family-base !default;
 $headers: $font-family-serif !default;
 $sans: $font-family-sans-serif !default;
+$special: "oneday" !default;
+
+@font-face {
+  font-family: 'oneday';
+  src: url('../fonts/One-Day.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/One-Day.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/One-Day.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/One-Day.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/One-Day.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
 
 /*------------------------------
 Font Sizes
 ------------------------------*/
-
 //headings
 $h1:  $font-size-h1 !default;
 $h2:  $font-size-h2 !default;
@@ -101,10 +111,32 @@ $font-xs:    $font-sm - 2 !default;
 /*------------------------------
 Global Elements
 ------------------------------*/
+body{
+  position: relative;
+  margin: 0;
+  padding-bottom: 11.2em;
+  min-height: 100%;
+}
 .no-padding{
   padding: 0;
+}
+.no-padding-right{
+  padding-right: 0;
+}
+.no-padding-left{
+  padding-left: 0;
 }
 .clearfix{
   clear: both;
   display: block;
+}
+.no-margin{
+  margin-left: 0;
+  margin-right: 0;
+}
+.no-margin-child{
+  > .row, > [class*="col-"]{
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

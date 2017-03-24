@@ -1,29 +1,12 @@
 ---
 layout: default
-title: YewTree Hub
+title: Blog
+description: blog showing tutorials and where resources came from
 hero: /images/work.jpg
 ---
-
-<div id="home" class="container-fluid no-padding no-margin-child">
-  <section id="pages" class="row">
-    <ul class="areas">
-      {% for page in site.pages %}
-        {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
-        {% if page.type == "area" %}
-        <li class="area">
-          <div class="content{% if area == 'even' %} pull-right{% else %} pull-left{% endif %}">
-            <h3>{{ page.title }}</h3>
-            <p>{{ page.excerpt }}</p>
-            <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
-          </div>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </section>
-  {% if site.posts %}
+<div id="blog" class="container-fluid no-padding no-margin-child">
   <section id="posts" class="row">
-    {% for post in site.posts limit: 3 %}
+    {% for post in site.posts %}
 
     <div class="col-xs-12 post no-padding">
       <div class="col-sm-6 col-xs-12 no-padding {% cycle '', 'pull-right', '' %}">
@@ -62,5 +45,4 @@ hero: /images/work.jpg
 
     {% endfor %}
   </section>
-  {% endif %}
 </div>

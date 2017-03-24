@@ -17,6 +17,7 @@ sourcemaps = require( 'gulp-sourcemaps' ),
 // Compress Images
 imagemin = require( 'gulp-imagemin' ),
 cache = require( 'gulp-cache' ),
+changed = require( 'gulp-changed' ),
 // Detect changes and errors
 plumber = require( 'gulp-plumber' ),
 notify = require( 'gulp-notify' ),
@@ -136,6 +137,7 @@ Images
 gulp.task( 'image', function() {
   return gulp.src( 'images/**/*.+(png|jpg|jpeg|gif|svg)' )
   .pipe( plumber() )
+  .pipe( changed( 'images' ) )
   .pipe( cache( imagemin( {
     progressive: true,
     interlaced: true,

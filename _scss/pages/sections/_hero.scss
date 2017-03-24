@@ -1,17 +1,18 @@
 #hero{
+  position: relative;
   .jumbotron{
-    background: url(/images/work.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: cover !important;
+    background-position: center !important;
     @include size(100%,100vh);
     margin-bottom: 0;
+    overflow: hidden;
     &::before{
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       @include size(100%,100%);
-      background-color: rgba($black,.45);
+      background-color: rgba($black,.5);
     }
     .hero-container{
       @include centerPosition;
@@ -19,8 +20,14 @@
         color: $white;
       }
       h1{
-        margin: 0 0 2%;
+        margin: 0 0 0.4em;
+        font-family: $special;
       }
+    }
+  }
+  &.page-hero{
+    .jumbotron{
+      @include size(100%,80vh);
     }
   }
 }

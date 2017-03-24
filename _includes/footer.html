@@ -1,1 +1,28 @@
-<footer class="footer"><div class="contact"><p>Your Name is<br/>What You Are<br/>you@example.com</p></div><div class="contact"><p><a href="https://github.com/yourusername">github.com/yourname</a><br/><a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br/></p></div></footer>
+<footer id="footer" class="container-fluid">
+  <div class="container-sl container-xl container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="social">
+          <ul class="contact">
+            <li><a href="https://github.com/YewTreeWeb"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://gitlab.com/YewTreeWeb"><i class="fa fa-gitlab" aria-hidden="true"></i></a></li>
+            <li><a href="http://yewtreeweb-test.uk"><i class="fa fa-wordpress" aria-hidden="true"></i></a></li>
+            <li><a href="http://yewtreeweb.uk">Me</a>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="copyright">
+          <div class="copyrightWrap">
+            {% if page.url == '/blog.html' %}
+            <p>The majority of all work on this website has been done from tutorials please see above for references.</p>
+            {% else %}
+            <p>The majority of all work on this website has been done from tutorials for references please see my <a href="/blog.html">blog</a></p>
+            {% endif %}
+            <p>Copyright &copy; {{ site.time | date: "%Y" }} by {{ site.author }}. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

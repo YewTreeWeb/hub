@@ -260,8 +260,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("../fontsglyphicons-halflings-regular.eot");
+  src: url("../fontsglyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fontsglyphicons-halflings-regular.woff2") format("woff2"), url("../fontsglyphicons-halflings-regular.woff") format("woff"), url("../fontsglyphicons-halflings-regular.ttf") format("truetype"), url("../fontsglyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -10477,7 +10477,7 @@ button.close {
 
 .fa {
   display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 16px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -13048,53 +13048,233 @@ Colours
 /*------------------------------
 Font
 ------------------------------*/
+@font-face {
+  font-family: 'oneday';
+  src: url("../fonts/One-Day.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/One-Day.eot?#iefix") format("embedded-opentype"), url("../fonts/One-Day.woff2") format("woff2"), url("../fonts/One-Day.woff") format("woff"), url("../fonts/One-Day.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
 /*------------------------------
 Font Sizes
 ------------------------------*/
 /*------------------------------
 Global Elements
 ------------------------------*/
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 11.2em;
+  min-height: 100%; }
+
 .no-padding {
   padding: 0; }
+
+.no-padding-right {
+  padding-right: 0; }
+
+.no-padding-left {
+  padding-left: 0; }
 
 .clearfix {
   clear: both;
   display: block; }
 
+.no-margin {
+  margin-left: 0;
+  margin-right: 0; }
+
+.no-margin-child > .row, .no-margin-child > [class*="col-"] {
+  margin-left: 0;
+  margin-right: 0; }
+
+h1 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
+h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
+h3 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
 /*------------------------------------
   3 - Pages
 ------------------------------------*/
-#hero .jumbotron {
-  background: url(/images/work.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
-  margin-bottom: 0; }
-  #hero .jumbotron:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+#hero {
+  position: relative; }
+  #hero .jumbotron {
+    background-size: cover !important;
+    background-position: center !important;
     width: 100%;
-    height: 100%;
-    background-color: #000000;
-    background-color: rgba(0, 0, 0, 0.45); }
-  #hero .jumbotron .hero-container {
-    position: absolute;
-    margin: 0 auto;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -ms-transform: translateY(-50%); }
-    #hero .jumbotron .hero-container h1, #hero .jumbotron .hero-container p {
-      color: #fff; }
-    #hero .jumbotron .hero-container h1 {
-      margin: 0 0 2%; }
+    height: 100vh;
+    margin-bottom: 0;
+    overflow: hidden; }
+    #hero .jumbotron:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      background-color: rgba(0, 0, 0, 0.5); }
+    #hero .jumbotron .hero-container {
+      position: absolute;
+      margin: 0 auto;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%); }
+      #hero .jumbotron .hero-container h1, #hero .jumbotron .hero-container p {
+        color: #fff; }
+      #hero .jumbotron .hero-container h1 {
+        margin: 0 0 0.4em;
+        font-family: "oneday"; }
+  #hero.page-hero .jumbotron {
+    width: 100%;
+    height: 80vh; }
+
+#posts.no-margin {
+  margin-left: 0;
+  margin-right: 0; }
+
+#posts > .post {
+  max-height: 480px; }
+  #posts > .post .post-content {
+    padding: 4em 4em 0.1em 4em; }
+    #posts > .post .post-content h3:after {
+      content: '';
+      display: block;
+      border-top: 2.5px solid #222222;
+      width: 100px;
+      margin: 0.7em 0 1em; }
+    #posts > .post .post-content h3 small {
+      text-transform: none;
+      display: block;
+      margin-top: 9px;
+      letter-spacing: 0.2px; }
+    #posts > .post .post-content h3, #posts > .post .post-content p {
+      color: #222222; }
+    #posts > .post .post-content button {
+      background-color: transparent;
+      border-color: #222222;
+      height: 3.25em;
+      padding: 0 1.75em;
+      line-height: 3.35em;
+      color: inherit;
+      margin-top: 1.5em;
+      transition: all 300ms ease-in-out;
+      -webkit-transition: all 300ms ease-in-out;
+      -moz-transition: all 300ms ease-in-out;
+      -o-transition: all 300ms ease-in-out;
+      -ms-transition: all 300ms ease-in-out; }
+      #posts > .post .post-content button:hover, #posts > .post .post-content button:focus, #posts > .post .post-content button:active {
+        background-color: #d9534f;
+        background-color: rgba(217, 83, 79, 0.65); }
+      #posts > .post .post-content button > a {
+        color: inherit;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px; }
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  padding: 3rem;
+  width: 100%;
+  background-color: #333333;
+  color: #dcdcdc; }
+  #footer .social {
+    position: relative;
+    height: 5em; }
+    #footer .social .contact {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 0;
+      list-style: none;
+      padding-left: 0;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start; }
+      @supports (display: flex) {
+        #footer .social .contact {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-flow: row wrap;
+              -ms-flex-flow: row wrap;
+                  flex-flow: row wrap;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center; } }
+      #footer .social .contact > li {
+        display: inline-block;
+        margin-left: 1em;
+        font-size: 28px; }
+        @supports (display: flex) {
+          #footer .social .contact > li {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-flow: row wrap;
+                -ms-flex-flow: row wrap;
+                    flex-flow: row wrap;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+                -ms-flex-align: center;
+                    align-items: center; } }
+        #footer .social .contact > li a {
+          color: #dcdcdc;
+          font-size: 40px;
+          transition: all 200ms ease-in-out;
+          -webkit-transition: all 200ms ease-in-out;
+          -moz-transition: all 200ms ease-in-out;
+          -o-transition: all 200ms ease-in-out;
+          -ms-transition: all 200ms ease-in-out; }
+          #footer .social .contact > li a:hover, #footer .social .contact > li a:active, #footer .social .contact > li a:focus {
+            color: #fff;
+            text-decoration: none; }
+          #footer .social .contact > li a > i {
+            font-size: inherit; }
+        #footer .social .contact > li:first-child {
+          margin-left: 0; }
+        #footer .social .contact > li:last-child a {
+          font-family: "oneday"; }
+  #footer .copyright {
+    padding: 1em; }
+    #footer .copyright .copyrightWrap {
+      margin-top: 1.5%; }
+      #footer .copyright .copyrightWrap p {
+        font-size: 14px; }
+        #footer .copyright .copyrightWrap p > a {
+          color: #dcdcdc;
+          text-decoration: underline; }
+          #footer .copyright .copyrightWrap p > a:hover, #footer .copyright .copyrightWrap p > a:active, #footer .copyright .copyrightWrap p > a:focus {
+            color: #fff; }
 
 #home #pages .areas {
   -webkit-box-pack: center;
@@ -13148,16 +13328,12 @@ Global Elements
     width: 100%;
     max-width: 33.5em;
     color: #fff; }
-    #home #pages .area .content h3 {
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase; }
-      #home #pages .area .content h3:after {
-        content: '';
-        display: block;
-        border-top: 2.5px solid #fff;
-        width: 100px;
-        margin: 0.7em 0 1em; }
+    #home #pages .area .content h3:after {
+      content: '';
+      display: block;
+      border-top: 2.5px solid #fff;
+      width: 100px;
+      margin: 0.7em 0 1em; }
     #home #pages .area .content button {
       background-color: transparent;
       border-color: #fff;
@@ -13179,7 +13355,3 @@ Global Elements
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 1px; }
-
-#home #posts .clearfix {
-  clear: both;
-  display: block; }
