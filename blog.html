@@ -26,6 +26,12 @@ hero: /images/work.jpg
           <h3>
             {{ post.title }}
             <small>
+              {% if post.categories %}
+                {% assign categories = post.categories[1] %}
+                {% for category in categories %}
+                  <span class="cat">{{ category | capitalize }}</span>
+                {% endfor %}
+              {% endif %}
               {% assign day = post.date | date: "%-d"  %}
               {% case day %}
                 {% when '1' or '21' or '31' %}{{ day }}st
