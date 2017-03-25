@@ -9,26 +9,27 @@ hero: /images/work.jpg
     {% for post in site.posts %}
 
     <div class="col-xs-12 post no-padding">
-      <div class="col-sm-6 col-xs-12 no-padding {% cycle '', 'pull-right', '' %}">
+      <div class="col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right' %}">
 
         {% if post.featured_image %}
           {% for image in post.featured_image %}
-          <img class="post-img" src="{{ image.url }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
+          <img class="img" src="{{ image.url }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
           {% endfor %}
         {% else %}
           <img class="post-img" src="/images/default-img.jpg" title="no image" alt="{{ site.name }}"/>
         {% endif %}
 
       </div>
-      <div class="col-sm-6 col-xs-12 {% cycle '', 'pull-left', '' %}">
+      <div class="col-sm-6 col-xs-12 {% cycle '', 'pull-left' %}">
 
         <div class="post-content">
           <h3>
             {{ post.title }}
             <small>
               {% if post.categories %}
-                {% assign categories = post.categories[1] %}
-                {% for category in categories %}
+                {% assign categories = post.categories %}
+                {% assign cats = categories %}
+                {% for category in cats %}
                   <span class="cat">{{ category | capitalize }}</span>
                 {% endfor %}
               {% endif %}

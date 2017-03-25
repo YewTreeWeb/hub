@@ -5,13 +5,14 @@ hero: /images/work.jpg
 ---
 
 <div id="home" class="container-fluid no-padding no-margin-child">
+  {% comment %} Pages {% endcomment %}
   <section id="pages" class="row">
     <ul class="areas">
       {% for page in site.pages %}
         {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% if page.type == "area" %}
         <li class="area">
-          <div class="content{% if area == 'even' %} pull-right{% else %} pull-left{% endif %}">
+          <div class="content{% if area == 'even' %} pull-left{% else %} pull-right{% endif %}">
             <h3>{{ page.title }}</h3>
             <p>{{ page.excerpt }}</p>
             <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
@@ -21,23 +22,25 @@ hero: /images/work.jpg
       {% endfor %}
     </ul>
   </section>
+  {% comment %} End Pages {% endcomment %}
+  {% comment %} Recent Posts {% endcomment %}
   {% if site.posts %}
   <section id="posts" class="row">
     {% for post in site.posts limit: 3 %}
 
     <div class="col-xs-12 post no-padding">
-      <div class="col-sm-6 col-xs-12 no-padding {% cycle '', 'pull-right', '' %}">
+      <div class="col-lg-5 col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right', '' %}">
 
         {% if post.featured_image %}
           {% for image in post.featured_image %}
-          <img class="post-img" src="{{ image.url }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
+          <img class="img" src="{{ image.url }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
           {% endfor %}
         {% else %}
           <img class="post-img" src="/images/default-img.jpg" title="no image" alt="{{ site.name }}"/>
         {% endif %}
 
       </div>
-      <div class="col-sm-6 col-xs-12 {% cycle '', 'pull-left', '' %}">
+      <div class="col-lg-7 col-sm-6 col-xs-12 {% cycle '', 'pull-left', '' %}">
 
         <div class="post-content">
           <h3>
@@ -63,4 +66,5 @@ hero: /images/work.jpg
     {% endfor %}
   </section>
   {% endif %}
+  {% comment %} End Recent Posts {% endcomment %}
 </div>

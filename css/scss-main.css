@@ -13,6 +13,8 @@
       - Responsive
   3 - Pages
       - Homepage
+  4 - Responsive
+      - Large Screens
 **/
 /*------------------------------------
   1 - Assets
@@ -13064,7 +13066,7 @@ Global Elements
 body {
   position: relative;
   margin: 0;
-  padding-bottom: 11.2em;
+  padding-bottom: 6.4%;
   min-height: 100%; }
 
 .no-padding {
@@ -13138,7 +13140,7 @@ h3 {
       #hero .jumbotron .hero-container h1, #hero .jumbotron .hero-container p {
         color: #fff; }
       #hero .jumbotron .hero-container h1 {
-        margin: 0 0 0.4em;
+        margin: 0 0 0.5em;
         font-family: "oneday"; }
   #hero.page-hero .jumbotron {
     width: 100%;
@@ -13148,44 +13150,53 @@ h3 {
   margin-left: 0;
   margin-right: 0; }
 
-#posts > .post {
-  max-height: 480px; }
-  #posts > .post .post-content {
-    padding: 4em 4em 0.1em 4em; }
-    #posts > .post .post-content h3:after {
-      content: '';
-      display: block;
-      border-top: 2.5px solid #222222;
-      width: 100px;
-      margin: 0.7em 0 1em; }
-    #posts > .post .post-content h3 small {
-      text-transform: none;
-      display: block;
-      margin-top: 9px;
-      letter-spacing: 0.2px; }
-    #posts > .post .post-content h3, #posts > .post .post-content p {
-      color: #222222; }
-    #posts > .post .post-content button {
-      background-color: transparent;
-      border-color: #222222;
-      height: 3.25em;
-      padding: 0 1.75em;
-      line-height: 3.35em;
+#posts > .post .post-img {
+  overflow: hidden; }
+  #posts > .post .post-img > img {
+    width: 100%; }
+
+#posts > .post .post-content {
+  padding: 4em 4em 0.1em 4em; }
+  #posts > .post .post-content h3:after {
+    content: '';
+    display: block;
+    border-top: 2.5px solid #222222;
+    width: 100px;
+    margin: 0.7em 0 1em; }
+  #posts > .post .post-content h3 small {
+    text-transform: none;
+    display: block;
+    margin-top: 22px;
+    letter-spacing: 0.2px; }
+    #posts > .post .post-content h3 small span.cat {
+      background-color: #d9534f;
+      color: #fff;
+      padding: 5px 10px;
+      -webkit-border-radius: 10px;
+              border-radius: 10px; }
+  #posts > .post .post-content h3, #posts > .post .post-content p {
+    color: #222222; }
+  #posts > .post .post-content button {
+    background-color: transparent;
+    border-color: #222222;
+    height: 3.25em;
+    padding: 0 1.75em;
+    line-height: 3.35em;
+    color: inherit;
+    margin-top: 1.5em;
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out; }
+    #posts > .post .post-content button:hover, #posts > .post .post-content button:focus, #posts > .post .post-content button:active {
+      background-color: #d9534f;
+      background-color: rgba(217, 83, 79, 0.65); }
+    #posts > .post .post-content button > a {
       color: inherit;
-      margin-top: 1.5em;
-      transition: all 300ms ease-in-out;
-      -webkit-transition: all 300ms ease-in-out;
-      -moz-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      -ms-transition: all 300ms ease-in-out; }
-      #posts > .post .post-content button:hover, #posts > .post .post-content button:focus, #posts > .post .post-content button:active {
-        background-color: #d9534f;
-        background-color: rgba(217, 83, 79, 0.65); }
-      #posts > .post .post-content button > a {
-        color: inherit;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 1px; }
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px; }
 
 #footer {
   position: absolute;
@@ -13355,3 +13366,19 @@ h3 {
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 1px; }
+
+/*------------------------------------
+  4 - Responsive
+------------------------------------*/
+@media all and (min-width: 1920px) {
+  #posts > .post {
+    border-top: 1px solid rgba(220, 220, 220, 0.4); }
+    #posts > .post:first-of-type {
+      border: none; }
+    #posts > .post .post-content {
+      width: 80%;
+      max-width: 63em; } }
+
+@media all and (max-width: 1920px) {
+  #posts > .post .post-img {
+    max-height: 480px; } }

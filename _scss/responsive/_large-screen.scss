@@ -1,0 +1,20 @@
+@media all and (min-width: 1920px){
+
+  // Homepage
+
+  // Posts
+  #posts{
+    > .post{
+      border-top: 1px solid rgba($silver,.4);
+      &:first-of-type{
+        border: none;
+      }
+      .post-content{
+        width: 80%;
+        max-width: 63em;
+      }
+    }
+  }
+
+
+}

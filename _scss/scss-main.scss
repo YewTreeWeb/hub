@@ -12,6 +12,8 @@
       - Responsive
   3 - Pages
       - Homepage
+  4 - Responsive
+      - Large Screens
 **/
 
 /*------------------------------------
@@ -28,3 +30,8 @@
   3 - Pages
 ------------------------------------*/
 @import "pages/child-pages";
+
+/*------------------------------------
+  4 - Responsive
+------------------------------------*/
+@import "responsive/responsive";

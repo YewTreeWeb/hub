@@ -1,0 +1,14 @@
+@media all and (max-width: 1920px){
+
+  // Homepage
+
+  // Posts
+  #posts{
+    > .post{
+      .post-img{
+        max-height: 480px;
+      }
+    }
+  }
+
+}

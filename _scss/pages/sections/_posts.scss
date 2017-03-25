@@ -4,7 +4,12 @@
     margin-right: 0;
   }
   > .post{
-    max-height: 480px;
+    .post-img{
+      overflow: hidden;
+      > img{
+        width: 100%;
+      }
+    }
     .post-content{
       padding: 4em 4em 0.1em 4em;
       h3{
@@ -18,8 +23,14 @@
         small{
           text-transform: none;
           display: block;
-          margin-top: 9px;
+          margin-top: 22px;
           letter-spacing: 0.2px;
+          span.cat{
+            background-color: $brand-danger;
+            color: $white;
+            padding: 5px 10px;
+            border-radius: 10px;
+          }
         }
       }
       h3, p{
