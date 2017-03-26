@@ -178,7 +178,7 @@ gulp.task( 'watch', function () {
   gulp.watch( 'js/**/*.js', [ 'js' ] );
   gulp.watch( '_pug/*.pug', [ 'pug' ] );
   gulp.watch( 'images/**/*.+(png|jpg|jpeg|gif|svg)', [ 'image' ] );
-  gulp.watch( [ '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html' ], [ 'jekyll-rebuild' ]);
+  gulp.watch( [ '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html', 'areas/**/*.html', 'blog/*.html' ], [ 'jekyll-rebuild' ]);
 } );
 
 /*---------------

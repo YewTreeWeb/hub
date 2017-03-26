@@ -36,7 +36,7 @@ hero: /images/work.jpg
           <img class="img" src="{{ image.url }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
           {% endfor %}
         {% else %}
-          <img class="post-img" src="/images/default-img.jpg" title="no image" alt="{{ site.name }}"/>
+          <img class="post-img" src="/images/default.jpg" title="no image" alt="{{ site.name }}"/>
         {% endif %}
 
       </div>
@@ -48,12 +48,12 @@ hero: /images/work.jpg
             <small>
               {% assign day = post.date | date: "%-d"  %}
               {% case day %}
-                {% when '1' or '21' or '31' %}{{ day }}st
-                {% when '2' or '22' %}{{ day }}nd
-                {% when '3' or '23' %}{{ day }}rd
-                {% else %}{{ day }}th
+                {% when '1' or '21' or '31' %}{{ day }}<sup>st</sup>
+                {% when '2' or '22' %}{{ day }}<sup>nd</sup>
+                {% when '3' or '23' %}{{ day }}<sup>rd</sup>
+                {% else %}{{ day }}<sup>th</sup>
               {% endcase %}
-              {{ post.date | date: "of %B %Y" }}
+              {{ post.date | date: "%B %Y" }}
             </small>
           </h3>
           <div class="excerpt">{{ post.excerpt }}</div>

@@ -4,14 +4,32 @@
     margin-right: 0;
   }
   > .post{
+    @media all and (min-width: 1920px){
+      border-top: 1px solid rgba($silver,.4);
+      &:first-of-type{
+        border: none;
+      }
+      .post-content{
+        width: 80%;
+        max-width: 63em;
+      }
+    }
+    @media all and (max-width: 1440px) and (min-width: 768px){
+      .col-lg-5, .col-lg-7{
+        width: 50%;
+      }
+    }
     .post-img{
       overflow: hidden;
+      @media all and (max-width: 1440px){
+        max-height: 480px;
+      }
       > img{
         width: 100%;
       }
     }
     .post-content{
-      padding: 4em 4em 0.1em 4em;
+      padding: 3em 4em 2.5em 4em;
       h3{
         &::after{
           content: '';

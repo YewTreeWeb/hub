@@ -14,10 +14,10 @@
       <div class="col-xs-6">
         <div class="copyright">
           <div class="copyrightWrap">
-            {% if page.url == '/blog.html' %}
+            {% if page.url contains '/blog/' %}
             <p>The majority of all work on this website has been done from tutorials please see above for references.</p>
             {% else %}
-            <p>The majority of all work on this website has been done from tutorials for references please see my <a href="/blog.html">blog</a></p>
+            <p>The majority of all work on this website has been done from tutorials for references please see my <a href="/blog/index.html">blog</a></p>
             {% endif %}
             <p>Copyright &copy; {{ site.time | date: "%Y" }} by {{ site.author }}. All Rights Reserved.</p>
           </div>

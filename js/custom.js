@@ -29,3 +29,10 @@ $(function () {
 $(function () {
   $('.excerpt img').remove();
 });
+
+/*-- blog pagination --*/
+$(function (e) {
+  $('.pagination .active a').click(function (e) {
+    e.preventDefault();
+  });
+});

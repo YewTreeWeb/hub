@@ -116,6 +116,9 @@ body{
   margin: 0;
   padding-bottom: 6.4%;
   min-height: 100%;
+  @media all and (max-width: 1440px){
+    padding-bottom: 12.4%;
+  }
 }
 .no-padding{
   padding: 0;
