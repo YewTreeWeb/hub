@@ -1,39 +1,54 @@
-// pagination
-.pagination-lg{
-  margin: 0;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  > li{
-    &:first-child, &:last-child{
-      > a{
-        color: $brand-danger;
-      }
-    }
-    &.active{
-      > a{
-        background-color: $brand-danger;
-        border-color: $brand-danger;
-        &:hover, &:focus, &:active{
-          background-color: $brand-danger;
-          border-color: $brand-danger;
+#blog{
+  position: relative;
+
+  // pagination
+  .paginate-navigation{
+    position: absolute 0 0 null null;
+    max-width: 100px;
+    .pagination-lg{
+      margin: 0;
+      border-radius: 0;
+      display: block;
+      width: 100%;
+      > li{
+        display: block;
+        text-align: center;
+        width: 100%;
+        &:first-child, &:last-child{
+          > a{
+            color: $brand-danger;
+          }
+        }
+        &.active{
+          > a{
+            background-color: $brand-danger;
+            border-color: $brand-danger;
+            &:hover, &:focus, &:active{
+              background-color: $brand-danger;
+              border-color: $brand-danger;
+            }
+          }
+        }
+        &.disabled{
+          > span{
+            color: $gray-darker;
+          }
+        }
+        > a{
+          color: $gray-darker;
+          float: none;
+          display: block;
+          width: 100%;
+          &:hover, &:focus, &:active{
+            color: $brand-danger;
+          }
+        }
+        > a, > span{
+          border-radius: 0 !important;
         }
       }
     }
-    &.disabled{
-      > span{
-        color: $gray-darker;
-      }
-    }
-    > a{
-      color: $gray-darker;
-      &:hover, &:focus, &:active{
-        color: $brand-danger;
-      }
-    }
-    > a, > span{
-      border-radius: 0 !important;
-    }
   }
+
+
 }

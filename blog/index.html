@@ -52,7 +52,7 @@ hero: /images/blogging.jpg
   </section>
   <!-- Pagination links -->
   {% if paginator.total_pages > 1 %}
-  <nav aria-label="Page navigation" role="navigation">
+  <nav class="paginate-navigation" aria-label="Page navigation" role="navigation">
     <ul class="pagination pagination-lg">
       <li {% unless paginator.previous_page %}class="disabled"{% endunless %}>
         {% if paginator.previous_page %}
