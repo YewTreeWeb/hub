@@ -2,49 +2,90 @@
   position: relative;
 
   // pagination
-  .paginate-navigation{
+  .paginate-wrapper{
     position: absolute 0 0 null null;
-    max-width: 100px;
-    .pagination-lg{
-      margin: 0;
-      border-radius: 0;
-      display: block;
-      width: 100%;
-      > li{
+    width: 122px;
+    min-height: 193px;
+    &.fixed{
+      position: fixed;
+    }
+    .paginate-tab{
+      position: absolute 50% 0 null null;
+      transform: translateY(-50%);
+      font-size: 40px;
+      border-radius: 5px 0 0 5px;
+      border: 1px solid $alto-gray;
+      width: 31px;
+      padding-left: 8px;
+      background-color: $white;
+      transition: all 250ms ease-in-out;
+      &.open{
+        position: absolute 50% 90px null null;
+      }
+      > i{
+        font-size: inherit;
+        color: $gray-darker;
+      }
+    }
+    .paginate-navigation{
+      position: absolute 0 -7em null null;
+      max-width: 100px;
+      z-index: 10;
+      transition: all 250ms ease-in-out;
+      &.open{
+        position: absolute 0 0 null null;
+      }
+      .pagination-lg{
+        margin: 0;
+        border-radius: 0;
         display: block;
-        text-align: center;
         width: 100%;
-        &:first-child, &:last-child{
-          > a{
-            color: $brand-danger;
-          }
-        }
-        &.active{
-          > a{
-            background-color: $brand-danger;
-            border-color: $brand-danger;
-            &:hover, &:focus, &:active{
-              background-color: $brand-danger;
-              border-color: $brand-danger;
+        > li{
+          display: block;
+          text-align: center;
+          width: 100%;
+          clear: both;
+          &:first-child, &:last-child{
+            > a{
+              color: $brand-danger;
             }
           }
-        }
-        &.disabled{
-          > span{
+          &:first-child{
+            > span{
+              width: 100%;
+            }
+          }
+          &.active{
+            > a{
+              background-color: $brand-danger;
+              border-color: $brand-danger;
+              color: $white;
+              &:hover, &:focus, &:active{
+                background-color: $brand-danger;
+                border-color: $brand-danger;
+                color: $white;
+              }
+            }
+          }
+          &.disabled{
+            > span{
+              color: $gray-darker;
+            }
+          }
+          > a{
             color: $gray-darker;
+            float: none;
+            clear: both;
+            display: block;
+            width: 100%;
+            margin-left: 0;
+            &:hover, &:focus, &:active{
+              color: $brand-danger;
+            }
           }
-        }
-        > a{
-          color: $gray-darker;
-          float: none;
-          display: block;
-          width: 100%;
-          &:hover, &:focus, &:active{
-            color: $brand-danger;
+          > a, > span{
+            border-radius: 0 !important;
           }
-        }
-        > a, > span{
-          border-radius: 0 !important;
         }
       }
     }

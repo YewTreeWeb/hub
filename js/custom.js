@@ -36,3 +36,23 @@ $(function (e) {
     e.preventDefault();
   });
 });
+
+$(function () {
+  $('.paginate-tab').click(function () {
+    $(this).toggleClass('open');
+    $(this).children('.fa').toggleClass('fa-angle-left fa-angle-right');
+    $('.paginate-navigation').toggleClass('open');
+  });
+});
+
+$(window).scroll(function () {
+  var wScroll = $(this).scrollTop();
+
+  if (wScroll > $('#blog').offset().top - $(window).height() / 145) {
+
+    $('.paginate-wrapper').addClass('fixed');
+  } else {
+
+    $('.paginate-wrapper').removeClass('fixed');
+  }
+});
