@@ -8,7 +8,8 @@ hero: /images/work.jpg
   {% comment %} Pages {% endcomment %}
   <section id="pages" class="row">
     <ul class="areas">
-      {% for page in site.pages %}
+      {% assign pages = site.pages | sort: "title" %}
+      {% for page in pages %}
         {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% if page.type == "area" %}
         <li class="area">
