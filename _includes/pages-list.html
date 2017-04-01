@@ -1,0 +1,7 @@
+<li class="area">
+  <div class="content{% if area == 'even' %} pull-left{% else %} pull-right{% endif %}">
+    <h3>{{ page.title }}</h3>
+    <p>{{ page.excerpt }}</p>
+    <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
+  </div>
+</li>

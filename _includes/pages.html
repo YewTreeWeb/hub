@@ -1,0 +1,12 @@
+<section id="pages" class="row">
+  <ul class="areas">
+    {% assign pages = site.pages | sort: "title" %}
+    {% for page in pages %}
+      {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
+      {% case page.type %}
+        {% if page.type == 'area' or 'js-subpages' or 'php-subpages' or ' liquid-subpages' %}
+          {% include pages-list.html %}
+      {% endcase %}
+    {% endfor %}
+  </ul>
+</section>

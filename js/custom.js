@@ -45,14 +45,18 @@ $(function () {
   });
 });
 
-$(window).scroll(function () {
-  var wScroll = $(this).scrollTop();
+$(function () {
+  if ($('#blog').length) {
+    $(window).scroll(function () {
+      var wScroll = $(this).scrollTop();
 
-  if (wScroll > $('#blog').offset().top - $(window).height() / 145) {
+      if (wScroll > $('#blog').offset().top - $(window).height() / 145) {
 
-    $('.paginate-wrapper').addClass('fixed');
-  } else {
+        $('.paginate-wrapper').addClass('fixed');
+      } else {
 
-    $('.paginate-wrapper').removeClass('fixed');
+        $('.paginate-wrapper').removeClass('fixed');
+      }
+    });
   }
 });
