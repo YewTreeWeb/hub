@@ -1,5 +1,5 @@
 <header id="hero" {% if page.url != site.baseurl %}class="page-hero"{% endif %}>
-  <div class="jumbotron" {% if page.hero %}
+  <div class="jumbotron{% unless page.hero %} no-rgba{% endunless %}" {% if page.hero %}
     {% for hero in page.hero %}
       style="background: url({{ hero }}) no-repeat;"
     {% endfor %}
@@ -18,7 +18,9 @@
       <p class="lead text-center">
         {% if page.url contains "/blog/" or page.path contains '_posts' %}
         ...for when you need help and inspiration.
-        {% elsif page.type == "area" or page.type contains 'subpages' or page.path contains '_subpages' %}
+        {% elsif page.type == "area" or page.type contains 'subpages' %}
+        ...let the code flow
+        {% elsif page.path contains '_subpages' %}
         ...into the lab
         {% else %}
         ...because everybody needs a place to learn... and CODE!

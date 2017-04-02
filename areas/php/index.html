@@ -5,3 +5,63 @@ description: PHP coding resources
 type: area
 excerpt: All PHP code and PHP framework examples live here.
 ---
+
+<div id="area" class="container-fluid no-padding no-margin-child">
+  {% comment %} Sub Sections {% endcomment %}
+  <section id="pages" class="row">
+    <ul class="areas">
+      {% assign pages = site.pages %}
+      {% for page in pages %}
+        {% if page.type contains "php-subpages" %}
+        <li class="area">
+          <div class="content {% cycle 'pull-right', 'pull-left' %}">
+            <h3>{{ page.title | remove: 'php' }}</h3>
+            <p>{{ page.excerpt }}</p>
+            <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
+          </div>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% comment %} End Sub Sections {% endcomment %}
+  {% comment %} Recent Posts {% endcomment %}
+  <section id="posts" class="row">
+    {% for subpage in site.subpages %}
+      {% if subpage.categories contains "php" %}
+      <div class="col-xs-12 post no-padding">
+        <div class="col-lg-5 col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right', '' %}">
+
+          {% assign code = subpage | split: '<!-- code -->' %}
+          {{ code[1] }}
+
+        </div>
+        <div class="col-lg-7 col-sm-6 col-xs-12 {% cycle '', 'pull-left', '' %}">
+
+          <div class="post-content">
+            <h3>
+              {{ subpage.title }}
+              <small>
+                {% assign day = subpage.date | date: "%-d"  %}
+                {% case day %}
+                  {% when '1' or '21' or '31' %}{{ day }}<sup>st</sup>
+                  {% when '2' or '22' %}{{ day }}<sup>nd</sup>
+                  {% when '3' or '23' %}{{ day }}<sup>rd</sup>
+                  {% else %}{{ day }}<sup>th</sup>
+                {% endcase %}
+                {{ subpage.date | date: "%B %Y" }}
+              </small>
+            </h3>
+            {% if subpage.excerpt %}
+            <div class="excerpt">{{ subpage.excerpt }}</div>
+            {% endif %}
+            <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ subpage.url }}">Read More</a></button>
+          </div>
+
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+  {% comment %} End Recent Posts {% endcomment %}
+</div>

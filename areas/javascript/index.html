@@ -10,13 +10,12 @@ excerpt: All JS code and JS frameworks live here.
   {% comment %} Sub Sections {% endcomment %}
   <section id="pages" class="row">
     <ul class="areas">
-      {% assign pages = site.pages | sort: "title" %}
+      {% assign pages = site.pages %}
       {% for page in pages %}
-        {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% if page.type contains "js-subpages" %}
         <li class="area">
-          <div class="content{% if area == 'even' %} pull-left{% else %} pull-right{% endif %}">
-            <h3>{{ page.title }}</h3>
+          <div class="content {% cycle 'pull-right', 'pull-left' %}">
+            <h3>{{ page.title | remove: 'JavaScript' }}</h3>
             <p>{{ page.excerpt }}</p>
             <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
           </div>

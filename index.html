@@ -13,7 +13,7 @@ hero: /images/work.jpg
         {% capture area %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% if page.type == "area" %}
         <li class="area">
-          <div class="content{% if area == 'even' %} pull-left{% else %} pull-right{% endif %}">
+          <div class="content {% cycle 'pull-right', 'pull-left' %}">
             <h3>{{ page.title }}</h3>
             <p>{{ page.excerpt }}</p>
             <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ page.url }}">More</a></button>
@@ -30,7 +30,7 @@ hero: /images/work.jpg
     {% for post in site.posts limit: 3 %}
 
     <div class="col-xs-12 post no-padding">
-      <div class="col-lg-5 col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right', '' %}">
+      <div class="col-lg-5 col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right' %}">
 
         {% if post.featured_image %}
           {% for image in post.featured_image %}
@@ -41,7 +41,7 @@ hero: /images/work.jpg
         {% endif %}
 
       </div>
-      <div class="col-lg-7 col-sm-6 col-xs-12 {% cycle '', 'pull-left', '' %}">
+      <div class="col-lg-7 col-sm-6 col-xs-12 {% cycle '', 'pull-left' %}">
 
         <div class="post-content">
           <h3>

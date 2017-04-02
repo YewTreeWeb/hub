@@ -228,7 +228,7 @@ gulp.task( 'build:jsmin', function(){
 } );*/
 
 gulp.task( 'build:htmlmin', function(){
-  return gulp.src( '_site/*.html' )
+  return gulp.src( '_site/**/*.html' )
   .pipe( plumber() )
   .pipe( htmlmin( { collapseWhitespace: true } ).on( 'error', handleErrors ) )
   .pipe( gulp.dest( '_site' ) );
