@@ -13129,6 +13129,9 @@ h3 {
       height: 100%;
       background-color: #000000;
       background-color: rgba(0, 0, 0, 0.5); }
+    #hero .jumbotron.no-rgba:before {
+      content: none;
+      background: none; }
     #hero .jumbotron .hero-container {
       position: absolute;
       margin: 0 auto;
@@ -13248,7 +13251,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.16); }
   #pages .area .content {
     width: 100%;
-    max-width: 33.5em;
+    max-width: 29.5em;
     color: #fff; }
     #pages .area .content h3:after {
       content: '';
@@ -13260,7 +13263,7 @@ h3 {
       background-color: transparent;
       border-color: #fff;
       height: 3.25em;
-      padding: 0 1.75em;
+      padding: 0;
       line-height: 3.35em;
       color: inherit;
       margin-top: 1.5em;
@@ -13276,7 +13279,9 @@ h3 {
         color: inherit;
         text-transform: uppercase;
         font-weight: 700;
-        letter-spacing: 1px; }
+        letter-spacing: 1px;
+        padding: 1em 1.75em;
+        line-height: 0; }
 
 #posts.no-margin {
   margin-left: 0;
@@ -13344,7 +13349,8 @@ h3 {
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 1px;
-      padding: 1em 1.75em; }
+      padding: 1em 1.75em;
+      line-height: 0; }
 
 #footer {
   position: absolute;
