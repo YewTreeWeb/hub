@@ -1,3 +1,4 @@
+{% include nav.html %}
 <header id="hero" {% if page.url != site.baseurl %}class="page-hero"{% endif %}>
   <div class="jumbotron{% unless page.hero %} no-rgba{% endunless %}" {% if page.hero %}
     {% for hero in page.hero %}

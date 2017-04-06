@@ -1,0 +1,13 @@
+<ul class="dropdown-menu submenu">
+  {% for subnav in site.pages %}
+
+  {% if subnav.type == "subject" %}
+    {% if page.url == subnav.url %}
+      <li class="active"><a href="{{ subnav.url }}" class="active">{{ subnav.title }}</a></li>
+    {% else %}
+      <li><a href="{{ subnav.url }}">{{ subnav.title }}</a></li>
+    {% endif %}
+  {% endif %}
+
+{% endfor %}
+</ul>
