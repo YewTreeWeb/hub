@@ -13111,6 +13111,107 @@ h3 {
 /*------------------------------------
   3 - Pages
 ------------------------------------*/
+nav {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  width: 100%;
+  z-index: 99; }
+  nav .navbar-header > .navbar-brand {
+    font-family: "oneday";
+    font-size: 20px;
+    font-weight: 600; }
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  padding: 3rem;
+  width: 100%;
+  background-color: #333333;
+  color: #dcdcdc; }
+  #footer .social {
+    position: relative;
+    height: 5em; }
+    #footer .social .contact {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 0;
+      list-style: none;
+      padding-left: 0;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start; }
+      @supports (display: flex) {
+        #footer .social .contact {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-flow: row wrap;
+              -ms-flex-flow: row wrap;
+                  flex-flow: row wrap;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center; } }
+      #footer .social .contact > li {
+        display: inline-block;
+        margin-left: 1em;
+        font-size: 28px; }
+        @supports (display: flex) {
+          #footer .social .contact > li {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-flow: row wrap;
+                -ms-flex-flow: row wrap;
+                    flex-flow: row wrap;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+                -ms-flex-align: center;
+                    align-items: center; } }
+        #footer .social .contact > li a {
+          color: #dcdcdc;
+          font-size: 40px;
+          transition: all 200ms ease-in-out;
+          -webkit-transition: all 200ms ease-in-out;
+          -moz-transition: all 200ms ease-in-out;
+          -o-transition: all 200ms ease-in-out;
+          -ms-transition: all 200ms ease-in-out; }
+          #footer .social .contact > li a:hover, #footer .social .contact > li a:active, #footer .social .contact > li a:focus {
+            color: #fff;
+            text-decoration: none; }
+          #footer .social .contact > li a > i {
+            font-size: inherit; }
+        #footer .social .contact > li:first-child {
+          margin-left: 0; }
+        #footer .social .contact > li:last-child a {
+          font-family: "oneday"; }
+  #footer .copyright {
+    padding: 1em; }
+    #footer .copyright .copyrightWrap {
+      margin-top: 1.5%; }
+      #footer .copyright .copyrightWrap p {
+        font-size: 14px; }
+        #footer .copyright .copyrightWrap p > a {
+          color: #dcdcdc;
+          text-decoration: underline; }
+          #footer .copyright .copyrightWrap p > a:hover, #footer .copyright .copyrightWrap p > a:active, #footer .copyright .copyrightWrap p > a:focus {
+            color: #fff; }
+
 #hero {
   position: relative; }
   #hero .jumbotron {
@@ -13351,95 +13452,6 @@ h3 {
       letter-spacing: 1px;
       padding: 1em 1.75em;
       line-height: 0; }
-
-#footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 30px;
-  padding: 3rem;
-  width: 100%;
-  background-color: #333333;
-  color: #dcdcdc; }
-  #footer .social {
-    position: relative;
-    height: 5em; }
-    #footer .social .contact {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin-bottom: 0;
-      list-style: none;
-      padding-left: 0;
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-          -ms-flex-pack: start;
-              justify-content: flex-start; }
-      @supports (display: flex) {
-        #footer .social .contact {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: horizontal;
-          -webkit-box-direction: normal;
-          -webkit-flex-flow: row wrap;
-              -ms-flex-flow: row wrap;
-                  flex-flow: row wrap;
-          -webkit-box-align: center;
-          -webkit-align-items: center;
-              -ms-flex-align: center;
-                  align-items: center; } }
-      #footer .social .contact > li {
-        display: inline-block;
-        margin-left: 1em;
-        font-size: 28px; }
-        @supports (display: flex) {
-          #footer .social .contact > li {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -webkit-flex-flow: row wrap;
-                -ms-flex-flow: row wrap;
-                    flex-flow: row wrap;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-                -ms-flex-align: center;
-                    align-items: center; } }
-        #footer .social .contact > li a {
-          color: #dcdcdc;
-          font-size: 40px;
-          transition: all 200ms ease-in-out;
-          -webkit-transition: all 200ms ease-in-out;
-          -moz-transition: all 200ms ease-in-out;
-          -o-transition: all 200ms ease-in-out;
-          -ms-transition: all 200ms ease-in-out; }
-          #footer .social .contact > li a:hover, #footer .social .contact > li a:active, #footer .social .contact > li a:focus {
-            color: #fff;
-            text-decoration: none; }
-          #footer .social .contact > li a > i {
-            font-size: inherit; }
-        #footer .social .contact > li:first-child {
-          margin-left: 0; }
-        #footer .social .contact > li:last-child a {
-          font-family: "oneday"; }
-  #footer .copyright {
-    padding: 1em; }
-    #footer .copyright .copyrightWrap {
-      margin-top: 1.5%; }
-      #footer .copyright .copyrightWrap p {
-        font-size: 14px; }
-        #footer .copyright .copyrightWrap p > a {
-          color: #dcdcdc;
-          text-decoration: underline; }
-          #footer .copyright .copyrightWrap p > a:hover, #footer .copyright .copyrightWrap p > a:active, #footer .copyright .copyrightWrap p > a:focus {
-            color: #fff; }
 
 #blog {
   position: relative; }

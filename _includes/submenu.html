@@ -1,0 +1,14 @@
+{{ assign nav-pages = page.parent_type == "js" or page.parent_type == "php" or page.parent_type == "liquid" or page.parent_type == "styling" or page.parent_type == "package" or page.parent_type == "other" }}
+{{ assign nav-subpages = page.type == "js-subpages" or page.type == "php-subpages" or page.type == "liquid-subpages" or page.type == "styling-subpages" or page.type == "package-subpages" or page.type == "other-subpages" }}
+
+<ul class="dropdown-menu submenu">
+  {% for subnav in site.pages %}
+
+  {% if subnav.parent_type == "js" %}
+    {% for subpages in subnav.type.js-subpages %}
+      <li>{{ subpages.title }}</li>
+    {% endfor %}
+  {% endif %}
+
+{% endfor %}
+</ul>

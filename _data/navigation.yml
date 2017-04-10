@@ -1,0 +1,17 @@
+- title: "About"
+  href: "/about/"
+  children:
+    - childtitle: "Biography"
+      childhref: "/about/bio/"
+    - childtitle: "Resume"
+      childhref: "/about/resume/"
+
+- title: "Portfolio"
+  href: "/portfolio/"
+  children:
+    - childtitle: "Design"
+      childhref: "/portfolio/design/"
+    - childtitle: "Illustration"
+      childhref: "/portfolio/illustration/"
+    - childtitle: "Development"
+      childhref: "/portfolio/development/"
