@@ -73,6 +73,8 @@ $white:  $body-bg !default;
 $black:  $gray-base !default;
 $silver: #dcdcdc !default;
 $alto-gray: #ddd !default;
+$light-gray: lighten($alto-gray,10.7%);
+
 
 /*------------------------------
 Font

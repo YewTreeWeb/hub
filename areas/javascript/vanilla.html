@@ -13,7 +13,7 @@ excerpt: Page containing vanilla JS code.
     <section id="posts" class="row">
       {% for subpage in site.subpages %}
         {% if subpage.categories contains "javascript" and subpage.categories contains "vanilla" %}
-        <div class="post-container col-lg-3 col-sm-4 col-xs-12">
+        <div class="post-container col-sm-4 col-xs-12">
           <div class="post-inner">
             <h3>
               {{ subpage.title }}
@@ -31,7 +31,7 @@ excerpt: Page containing vanilla JS code.
             {% if subpage.excerpt %}
             <div class="excerpt">{{ subpage.excerpt }}</div>
             {% endif %}
-            <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ subpage.url }}">Read More</a></button>
+            <button class="btn btn-danger btn-lg" type="button" name="button" role="button"><a href="{{ subpage.url }}">Read More</a></button>
           </div>
         </div>
         {% endif %}

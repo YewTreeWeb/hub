@@ -1,17 +1,39 @@
-- title: "About"
-  href: "/about/"
+- title: "JavaScript"
+  href: "/areas/javascript/"
   children:
-    - childtitle: "Biography"
-      childhref: "/about/bio/"
-    - childtitle: "Resume"
-      childhref: "/about/resume/"
+    - childtitle: "Angular"
+      childhref: "/javascript/angular/"
+    - childtitle: "jQuery"
+      childhref: "/javascript/jquery/"
+    - childtitle: "ReactJS"
+      childhref: "/javascript/reactjs/"
+    - childtitle: "Vanilla JavaScript"
+      childhref: "/javascript/vanilla/"
 
-- title: "Portfolio"
-  href: "/portfolio/"
+- title: "Liquid"
+  href: "/areas/liquid/"
   children:
-    - childtitle: "Design"
-      childhref: "/portfolio/design/"
-    - childtitle: "Illustration"
-      childhref: "/portfolio/illustration/"
-    - childtitle: "Development"
-      childhref: "/portfolio/development/"
+    - childtitle: "Jekyll"
+      childhref: "/liquid/jekyll/"
+    - childtitle: "Shopify"
+      childhref: "/liquid/shopify/"
+
+- title: "Other"
+  href: "/areas/other/"
+
+- title: "Package Management"
+  href: "/areas/package-management/"
+
+- title: "PHP"
+  href: "/areas/php/"
+  children:
+    - childtitle: "Vanilla PHP"
+      childhref: "/php/vanilla/"
+
+- title: "Styling"
+  href: "/areas/styling/"
+  children:
+    - childtitle: "Less"
+      childhref: "/styling/less/"
+    - childtitle: "Sass"
+      childhref: "/styling/sass/"

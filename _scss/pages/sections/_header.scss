@@ -1,12 +1,30 @@
-nav{
+nav.navbar{
   position: absolute 0 0 null 0 !important;
   width: 100%;
   z-index: 99;
+  background-color: transparent !important;
+  border: transparent !important;
   .navbar-header{
     > .navbar-brand{
       font-family: $special;
       font-size: $h4;
       font-weight: 600;
+      color: $white;
+      &:hover{
+        color: $brand-danger;
+      }
+    }
+  }
+  #main-menu{
+    .nav{
+      li{
+        > a{
+          color: $white;
+          &:hover{
+            color: $brand-danger;
+          }
+        }
+      }
     }
   }
 }

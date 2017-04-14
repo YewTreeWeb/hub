@@ -1,3 +1,23 @@
 #area{
-  
+  padding: 3% 0;
+  .post-container{
+    background-color: $light-gray;
+    border: 1px solid darken($light-gray,6%);
+    padding: 2% 4%;
+    .post-inner{
+      > h3{
+        > small{
+          display: block;
+          margin: 10px 0;
+          line-height: 26px;
+        }
+      }
+      button{
+        margin: 3.5% 0;
+        > a{
+          color: $white;
+        }
+      }
+    }
+  }
 }
