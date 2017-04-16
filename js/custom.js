@@ -60,3 +60,39 @@ $(function () {
     });
   }
 });
+
+/*-- Navigation --*/
+$(function () {
+  $(window).scroll(function () {
+    var wScroll = $(this).scrollTop();
+
+    if (wScroll > $('.hero-container').offset().top - $(window).height() / 3.2) {
+      $('.navbar').removeClass('normal');
+      $('.navbar').addClass('fixed');
+      $('.mobile-nav').addClass('block');
+    } else {
+      $('.navbar').removeClass('fixed');
+      $('.navbar').addClass('normal');
+      $('.mobile-nav').removeClass('block');
+    }
+    if (wScroll > $('.hero-container').offset().top - $(window).height() / 3.5) {
+      $('.mobile-nav').addClass('down');
+    } else {
+      $('.mobile-nav').removeClass('down');
+    }
+  });
+});
+
+$(function () {
+  $('.navbar-toggle').toggle(function () {
+    $('.mobile-nav').addClass('drop');
+    $('.navbar').addClass("dropDown");
+    $('.navbar').addClass("drop");
+  }, function () {
+    $('.navbar').removeClass("drop");
+    $('.mobile-nav').removeClass('drop');
+    $('.navbar').delay(300).queue(function () {
+      $(this).removeClass("dropDown").dequeue();
+    });
+  });
+});

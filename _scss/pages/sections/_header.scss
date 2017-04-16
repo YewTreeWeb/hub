@@ -1,9 +1,49 @@
+.mobile-nav{
+  display: none;
+  position: fixed -60px 0.5% null null;
+  width: 60px;
+  padding: 8px;
+  background: $gray-darker;
+  color: $white;
+  z-index: 9;
+  border-radius: 0 0 8px 8px;
+  transition: all 250ms ease-in-out;
+  &.block{
+    display: block;
+    > button{
+      display: block;
+    }
+  }
+  &.down{
+    top: 0;
+  }
+  &.drop{
+    top: 52px;
+  }
+  > button{
+    margin: 0;
+    > span{
+      background-color: $white;
+    }
+  }
+}
 nav.navbar{
-  position: absolute 0 0 null 0 !important;
   width: 100%;
   z-index: 99;
-  background-color: transparent !important;
-  border: transparent !important;
+  border-radius: 0;
+  &.normal{
+    position: absolute 0 0 null 0 !important;
+  }
+  &.fixed{
+    position: fixed -52px 0 null 0 !important;
+  }
+  &.drop{
+    top: 0 !important;
+  }
+  &.dropDown{
+    transition: all 250ms ease-in-out;
+  }
+
   .navbar-header{
     > .navbar-brand{
       font-family: $special;
@@ -19,9 +59,18 @@ nav.navbar{
     .nav{
       li{
         > a{
-          color: $white;
+          color: lighten($gray-light,30%);
           &:hover{
-            color: $brand-danger;
+            color: $white;
+          }
+        }
+        > .dropdown-menu{
+          background-color: $gray-darker;
+          a{
+            padding: 8px 20px;
+            &:hover, &:focus, &:active{
+              background-color: $navbar-inverse-link-active-bg;
+            }
           }
         }
       }

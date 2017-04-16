@@ -13111,15 +13111,53 @@ h3 {
 /*------------------------------------
   3 - Pages
 ------------------------------------*/
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: -60px;
+  right: 0.5%;
+  width: 60px;
+  padding: 8px;
+  background: #222222;
+  color: #fff;
+  z-index: 9;
+  -webkit-border-radius: 0 0 8px 8px;
+          border-radius: 0 0 8px 8px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out; }
+  .mobile-nav.block {
+    display: block; }
+    .mobile-nav.block > button {
+      display: block; }
+  .mobile-nav.down {
+    top: 0; }
+  .mobile-nav.drop {
+    top: 52px; }
+  .mobile-nav > button {
+    margin: 0; }
+    .mobile-nav > button > span {
+      background-color: #fff; }
+
 nav.navbar {
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
-  left: 0 !important;
   width: 100%;
   z-index: 99;
-  background-color: transparent !important;
-  border: transparent !important; }
+  -webkit-border-radius: 0;
+          border-radius: 0; }
+  nav.navbar.normal {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important; }
+  nav.navbar.fixed {
+    position: fixed !important;
+    top: -52px !important;
+    right: 0 !important;
+    left: 0 !important; }
+  nav.navbar.drop {
+    top: 0 !important; }
+  nav.navbar.dropDown {
+    -webkit-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out; }
   nav.navbar .navbar-header > .navbar-brand {
     font-family: "oneday";
     font-size: 20px;
@@ -13128,9 +13166,15 @@ nav.navbar {
     nav.navbar .navbar-header > .navbar-brand:hover {
       color: #d9534f; }
   nav.navbar #main-menu .nav li > a {
-    color: #fff; }
+    color: #c4c4c4; }
     nav.navbar #main-menu .nav li > a:hover {
-      color: #d9534f; }
+      color: #fff; }
+  nav.navbar #main-menu .nav li > .dropdown-menu {
+    background-color: #222222; }
+    nav.navbar #main-menu .nav li > .dropdown-menu a {
+      padding: 8px 20px; }
+      nav.navbar #main-menu .nav li > .dropdown-menu a:hover, nav.navbar #main-menu .nav li > .dropdown-menu a:focus, nav.navbar #main-menu .nav li > .dropdown-menu a:active {
+        background-color: #090909; }
 
 #footer {
   position: absolute;
