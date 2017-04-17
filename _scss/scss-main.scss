@@ -5,15 +5,11 @@
       - Hover
       - Animate.css
       - Font Awesome
+      - Hamburger Icons
   2 - Custom Assets
-      - Custom Mixins
-      - Custom Variables
-      - Layouts
-      - Responsive
+      - Global Elements
   3 - Pages
       - Homepage
-  4 - Responsive
-      - Large Screens
 **/
 
 /*------------------------------------
@@ -22,7 +18,7 @@
 @import "assets/assets";
 
 /*------------------------------------
-  2 - Custom Assets
+ 2 - Custom Assets
 ------------------------------------*/
 @import "custom-assets/custom-assets";
 

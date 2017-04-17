@@ -142,6 +142,32 @@
   }
 }
 
+//border
+@mixin border( $top, $right, $bottom, $left, $style, $colour) {
+  @if $top != null{
+    border-top: $top;
+  } @else {
+    border-top: none !important;
+  }
+  @if $right != null{
+    border-right: $right;
+  } @else {
+    border-right: none !important;
+  }
+  @if $bottom != null{
+    border-bottom: $bottom;
+  } @else {
+    border-bottom: none !important;
+  }
+  @if $left != null{
+    border-left: $left;
+  } @else {
+    border-left: none !important;
+  }
+  border-style: $style;
+  border-color: $colour;
+}
+
 //header styling
 $headings: ( h1: $h1, h2: $h2, h3: $h3 );
 

@@ -3,7 +3,8 @@
   position: fixed -60px 0.5% null null;
   width: 60px;
   padding: 8px;
-  background: $gray-darker;
+  background: rgba($navbar-inverse-bg,.7);
+  @include border(null,1px,1px,1px,solid,$navbar-inverse-border);
   color: $white;
   z-index: 9;
   border-radius: 0 0 8px 8px;
@@ -31,6 +32,7 @@ nav.navbar{
   width: 100%;
   z-index: 99;
   border-radius: 0;
+  background-color: rgba($navbar-inverse-bg,.7);
   &.normal{
     position: absolute 0 0 null 0 !important;
   }
@@ -61,6 +63,11 @@ nav.navbar{
         > a{
           color: lighten($gray-light,30%);
           &:hover{
+            color: $white;
+          }
+        }
+        &.active{
+          > a{
             color: $white;
           }
         }

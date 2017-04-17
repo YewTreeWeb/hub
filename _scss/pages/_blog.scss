@@ -6,6 +6,7 @@
     position: absolute 0 0 null null;
     width: 122px;
     min-height: 193px;
+    overflow: hidden;
     &.fixed{
       position: fixed;
     }
