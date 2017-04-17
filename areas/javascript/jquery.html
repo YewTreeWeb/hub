@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: area-layout
 title: jQuery
 description: jQuery code
 type:
@@ -9,34 +9,28 @@ excerpt: Page containing jQuery code.
 hero: /images/jquery-bg.jpg
 ---
 
-<div id="area" class="container-fluid no-padding no-margin-child">
-  <div class="container-sl container-xl container">
-    <section id="posts" class="row">
-      {% for subpage in site.subpages %}
-        {% if subpage.categories contains "javascript" and subpage.categories contains "jquery" %}
-        <div class="post-container col-lg-3 col-sm-4 col-xs-12">
-          <div class="post-inner">
-            <h3>
-              {{ subpage.title }}
-              <small>
-                {% assign day = subpage.date | date: "%-d"  %}
-                {% case day %}
-                  {% when '1' or '21' or '31' %}{{ day }}<sup>st</sup>
-                  {% when '2' or '22' %}{{ day }}<sup>nd</sup>
-                  {% when '3' or '23' %}{{ day }}<sup>rd</sup>
-                  {% else %}{{ day }}<sup>th</sup>
-                {% endcase %}
-                {{ subpage.date | date: "%B %Y" }}
-              </small>
-            </h3>
-            {% if subpage.excerpt %}
-            <div class="excerpt">{{ subpage.excerpt }}</div>
-            {% endif %}
-            <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ subpage.url }}">Read More</a></button>
-          </div>
-        </div>
-        {% endif %}
-      {% endfor %}
-    </section>
+{% for subpage in site.subpages %}
+  {% if subpage.categories contains "javascript" and subpage.categories contains "jquery" %}
+  <div class="post-container col-lg-3 col-sm-4 col-xs-12">
+    <div class="post-inner">
+      <h3>
+        {{ subpage.title }}
+        <small>
+          {% assign day = subpage.date | date: "%-d"  %}
+          {% case day %}
+            {% when '1' or '21' or '31' %}{{ day }}<sup>st</sup>
+            {% when '2' or '22' %}{{ day }}<sup>nd</sup>
+            {% when '3' or '23' %}{{ day }}<sup>rd</sup>
+            {% else %}{{ day }}<sup>th</sup>
+          {% endcase %}
+          {{ subpage.date | date: "%B %Y" }}
+        </small>
+      </h3>
+      {% if subpage.excerpt %}
+      <div class="excerpt">{{ subpage.excerpt }}</div>
+      {% endif %}
+      <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ subpage.url }}">Read More</a></button>
+    </div>
   </div>
-</div>
+  {% endif %}
+{% endfor %}

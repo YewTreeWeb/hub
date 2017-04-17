@@ -2,12 +2,14 @@
   display: none;
   position: fixed -60px 0.5% null null;
   width: 60px;
+  height: 40px;
   padding: 8px;
   background: rgba($navbar-inverse-bg,.7);
   @include border(null,1px,1px,1px,solid,$navbar-inverse-border);
   color: $white;
   z-index: 9;
   border-radius: 0 0 8px 8px;
+  cursor: pointer;
   transition: all 250ms ease-in-out;
   &.block{
     display: block;
@@ -22,10 +24,52 @@
     top: 52px;
   }
   > button{
-    margin: 0;
-    > span{
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    float: none;
+    @include rotate(0);
+    @include transition(all,.5s,ease-in-out);
+    span{
+      display: block;
+      position: absolute null 0 null 0;
+      height: 9px;
+      width: 100%;
       background-color: $white;
+      opacity: 1;
+      border-radius: 9px;
+      margin-top: 0 !important;
+      margin: 0 auto !important;
+      @include rotate(0);
+      @include transition(all,.25s,ease-in-out);
+      &:nth-child(1){
+        top: 0;
+      }
+      &:nth-child(2), &:nth-child(3){
+        top: 8px;
+      }
+      &:nth-child(4){
+        top: 16px;
+      }
     }
+    &.open{
+      span{
+        &:nth-child(1), &:nth-child(4){
+          top: 18px;
+          width: 0%;
+          left: 50%;
+        }
+        &:nth-child(2){
+          @include rotate(45);
+        }
+        &:nth-child(3){
+          @include rotate(-45);
+        }
+      }
+    }
+
   }
 }
 nav.navbar{
