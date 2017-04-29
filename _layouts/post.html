@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<div id="post" class="container-fluid">
+<div id="post-container" class="container-fluid">
   <div class="container-sl container-xl container">
     <section class="post-row row">
-      <div class="col-xs-12">
+      <article class="col-xs-12 post-inner">
 
         <h2>
           {{ page.title }}
@@ -19,11 +19,11 @@ layout: default
             {{ page.date | date: "%B %Y" }}
           </small>
         </h2>
-        <div class="post">
+        <div class="post-content">
           {{ content }}
         </div>
 
-      </div>
+      </article>
     </section>
   </div>
 </div>

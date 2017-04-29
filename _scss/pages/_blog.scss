@@ -20,6 +20,7 @@
       padding-left: 8px;
       background-color: $white;
       transition: all 250ms ease-in-out;
+      cursor: pointer;
       &.open{
         position: absolute 50% 90px null null;
       }

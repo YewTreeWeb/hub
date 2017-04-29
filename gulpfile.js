@@ -104,6 +104,7 @@ Sass
 gulp.task( 'sass', function () {
   return gulp.src( '_scss/**/*.scss' )
   .pipe( plumber() )
+  .pipe( sourcemaps.init() )
   .pipe( sass( {
     outputStyle: 'nested'
   } ).on( 'error', handleErrors ) )
@@ -111,6 +112,7 @@ gulp.task( 'sass', function () {
     fallbacks: true
   } ).on( 'error', handleErrors ) )
   .pipe( autoprefixer( [ 'last 15 versions', '> 1%', 'ie 8', 'ie 7' ], { cascade: true } ) )
+  .pipe( sourcemaps.write('maps') )
   .pipe( gulp.dest( '_site/css' ) )
   .pipe( reload( { stream:true } ) )
   .pipe( gulp.dest( 'css' ) );
@@ -125,7 +127,9 @@ JS
 gulp.task( 'js', function() {
   return gulp.src( [ 'js/**/*.js', '!js/**/*.min.js', '!js/**/*-min.js', '!js/bootstrap.js', '!js/bootstrap/*.js', '!js/bootstrap.min.js' ] )
   .pipe( plumber() )
+  .pipe( sourcemaps.init() )
   .pipe( babel().on( 'error', handleErrors ) )
+  .pipe( sourcemaps.write('maps') )
   .pipe( gulp.dest( '_site/js' ) )
   .pipe( reload( { stream:true } ) )
   .pipe( gulp.dest( 'js' ) );

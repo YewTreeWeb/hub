@@ -18,7 +18,7 @@ description: This is a site for me to learn, practice coding and to act as a hub
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://yewtreeweb.co.uk/hub" # the base hostname & protocol for your site
 author: Mathew Teague
-paginate: 2
+paginate: 10
 paginate_path: "/blog/page:num/"
 
 # Build settings

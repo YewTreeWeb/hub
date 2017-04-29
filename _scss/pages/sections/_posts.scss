@@ -43,11 +43,18 @@
           display: block;
           margin-top: 22px;
           letter-spacing: 0.2px;
-          span.cat{
-            background-color: $brand-danger;
-            color: $white;
-            padding: 5px 10px;
-            border-radius: 10px;
+          line-height: 34px;
+          span{
+            &.cat{
+              background-color: $brand-danger;
+              color: $white;
+              padding: 5px 10px;
+              border-radius: 10px;
+            }
+            &.date{
+              display: block;
+              margin-top: 0.6em;
+            }
           }
         }
       }

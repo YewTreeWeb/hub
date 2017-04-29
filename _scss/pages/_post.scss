@@ -1,0 +1,39 @@
+#post-container{
+  padding: 2em 0;
+  .post-row{
+    .post-inner{
+      h2{
+        margin-bottom: 0.7em;
+        > small{
+          font-size: 54%;
+          display: block;
+          line-height: 30px;
+          padding-top: 0.6em;
+        }
+      }
+      .post-content{
+        p{
+          img{
+            width: 100%;
+            max-width: 400px;
+          }
+          &:nth-of-type(odd){
+            img{
+              float: left;
+              margin: 0 2.5em 2em 0;
+            }
+          }
+          &:nth-of-type(even){
+            img{
+              float: right;
+              margin: 0 0 2em 2.5em;
+            }
+          }
+        }
+        .highlight{
+          margin: 1.8em 0;
+        }
+      }
+    }
+  }
+ }
