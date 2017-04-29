@@ -27,7 +27,7 @@ $(function () {
 
 /*-- excerpt image --*/
 $(function () {
-  $('.excerpt img').remove();
+  //$('.excerpt img').remove();
 });
 
 /*-- blog pagination --*/
@@ -115,6 +115,9 @@ $(function () {
     $('.navbar-toggle').removeClass('open');
   });
 });
+//# sourceMappingURL=maps/custom.js.map
+//# sourceMappingURL=maps/custom.js.map
+//# sourceMappingURL=maps/custom.js.map
 //# sourceMappingURL=maps/custom.js.map
 //# sourceMappingURL=maps/custom.js.map
 //# sourceMappingURL=maps/custom.js.map

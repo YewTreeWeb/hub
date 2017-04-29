@@ -57,7 +57,12 @@ hero: /images/work.jpg
               {{ post.date | date: "%B %Y" }}
             </small>
           </h3>
-          <div class="excerpt">{{ post.excerpt }}</div>
+          {% if post.content contains 'img' %}
+            {% assign excerpt = post.content | split: '<!--image-->' %}
+            <div class="excerpt">{{ excerpt[1] | truncatewords: 58 }}</div>
+          {% else %}
+            <div class="excerpt">{{ post.excerpt }}</div>
+          {% endif %}
           <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ post.url }}">Read More</a></button>
         </div>
 
