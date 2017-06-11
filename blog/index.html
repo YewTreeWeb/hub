@@ -9,7 +9,7 @@ hero: /images/blogging.jpg
     {% for post in paginator.posts %}
 
     <div class="col-xs-12 post no-padding">
-      <div class="col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right' %}">
+      <div class="col-lg-5 col-sm-6 col-xs-12 post-img no-padding {% cycle '', 'pull-right' %}">
 
         {% if post.featured_image %}
           {% for image in post.featured_image %}
@@ -20,7 +20,7 @@ hero: /images/blogging.jpg
         {% endif %}
 
       </div>
-      <div class="col-sm-6 col-xs-12 {% cycle '', 'pull-left' %}">
+      <div class="col-lg-7 col-sm-6 col-xs-12 {% cycle '', 'pull-left' %}">
 
         <div class="post-content">
           <h3>
@@ -43,7 +43,12 @@ hero: /images/blogging.jpg
               </span>
             </small>
           </h3>
-          <div class="excerpt">{{ post.excerpt }}</div>
+          {% if post.content contains 'img' %}
+            {% assign excerpt = post.content | split: '<!--image-->' %}
+            <div class="excerpt">{{ excerpt[1] | truncatewords: 58 }}</div>
+          {% else %}
+            <div class="excerpt">{{ post.excerpt }}</div>
+          {% endif %}
           <button class="btn btn-default" type="button" name="button" role="button"><a href="{{ post.url }}">Read More</a></button>
         </div>
 
