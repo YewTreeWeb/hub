@@ -182,7 +182,7 @@ gulp.task( 'watch', function () {
   gulp.watch( 'js/**/*.js', [ 'js' ] );
   gulp.watch( '_pug/*.pug', [ 'pug' ] );
   gulp.watch( 'images/**/*.+(png|jpg|jpeg|gif|svg)', [ 'image' ] );
-  gulp.watch( [ '_config.yml', '_navigation.yml', '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html', 'areas/**/*.html', 'blog/*.html', '_subpages/**/*' ], [ 'jekyll-rebuild' ]);
+  gulp.watch( [ '_config.yml', '_data/navigation.yml', '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html', 'areas/**/*.html', 'blog/*.html', '_subpages/**/*' ], [ 'jekyll-rebuild' ]);
 } );
 
 /*---------------

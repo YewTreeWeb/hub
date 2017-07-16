@@ -37,3 +37,5 @@
       childhref: "/styling/less/"
     - childtitle: "Sass"
       childhref: "/styling/sass/"
+    - childtitle: "Stylus"
+      childhref: "/styling/stylus/"
