@@ -5,7 +5,7 @@ date: 2017-03-26 22:17:00
 categories:
   - subpages
   - javascript
-  - vanilla
+  - vanilla-js
 tag:
   - js-vanilla
 ---
