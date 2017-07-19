@@ -7,5 +7,18 @@ type:
   - js-subpages
 excerpt: Page containing AngularJS code.
 ---
+<!-- if subpages has content -->
 
-<h1>AngularJS</h1>
+{% assign subpage = site.subpages | sort: "categories" %}
+{% assign cat = subpage | where: "categories", 'angular' %}
+
+{% for item in cat %}
+
+   {% include content.html %}
+
+{% else %}
+<!-- if subpages don't have content -->
+
+  {% include no-content.html %}
+
+{% endfor %}

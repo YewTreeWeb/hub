@@ -8,20 +8,14 @@ type:
 excerpt: Page containing jQuery code.
 hero: /images/jquery-bg.jpg
 ---
-{% assign break_loop = false %}
-
 <!-- if subpages has content -->
-{% for subpage in site.subpages %}
 
-  {% if subpage.categories contains "javascript" and subpage.categories contains "jquery" %}
-    {% include content.html %}
-  {% else %}
-    {% assign break_loop = true %}
-  {% endif %}
+{% assign subpage = site.subpages | sort: "categories" %}
+{% assign cat = subpage | where: "categories", 'jquery' %}
 
-  {% if break_loop %}
-    {% break %}
-  {% endif %}
+{% for item in cat %}
+
+   {% include content.html %}
 
 {% else %}
 <!-- if subpages don't have content -->
@@ -29,10 +23,3 @@ hero: /images/jquery-bg.jpg
   {% include no-content.html %}
 
 {% endfor %}
-
-<!-- if subpage content dosen't have category of jquery -->
-{% if break_loop %}
-
-  {% include no-content.html %}
-
-{% endif %}

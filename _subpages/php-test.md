@@ -2,9 +2,8 @@
 layout: post
 title: PHP Test
 categories:
-  - subpages
   - php
-  - vanilla
+  - vanilla-php
 tag:
   - php-vanilla
 ---

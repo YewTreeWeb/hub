@@ -7,5 +7,18 @@ type:
   - js-subpages
 excerpt: Page containing ReactJs code.
 ---
+<!-- if subpages has content -->
 
-<h1>ReactJs</h1>
+{% assign subpage = site.subpages | sort: "categories" %}
+{% assign cat = subpage | where: "categories", 'reactjs' %}
+
+{% for item in cat %}
+
+   {% include content.html %}
+
+{% else %}
+<!-- if subpages don't have content -->
+
+  {% include no-content.html %}
+
+{% endfor %}

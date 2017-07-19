@@ -7,3 +7,18 @@ type:
   - styling-subpages
 excerpt: Page containing code examples for Stylus.
 ---
+<!-- if subpages has content -->
+
+{% assign subpage = site.subpages | sort: "categories" %}
+{% assign cat = subpage | where: "categories", 'stylus' %}
+
+{% for item in cat %}
+
+   {% include content.html %}
+
+{% else %}
+<!-- if subpages don't have content -->
+
+  {% include no-content.html %}
+
+{% endfor %}
