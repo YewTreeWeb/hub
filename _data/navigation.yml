@@ -30,6 +30,8 @@
       childhref: "/areas/package-management/grunt.html"
     - childtitle: "Gulp"
       childhref: "/areas/package-management/gulp.html"
+    - childtitle: "Composer"
+      childhref: "/areas/package-management/composer.html"
 
 - title: "PHP"
   href: "/areas/php/"
