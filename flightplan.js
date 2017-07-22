@@ -6,7 +6,23 @@ var config = {
 };
 
 var stageDeploy = {
-  filesToCopy: '_site/'
+  filesToCopy: [
+    '_site/',
+    '_site/areas/',
+    '_site/blog/',
+    '_site/css/',
+    '_site/css/maps/',
+    '_site/fonts/',
+    '_site/images/',
+    '_site/js/',
+    '_site/js/maps/',
+    '_site/posts/',
+    '_site/posts/starter/',
+    '_site/posts/test/',
+    '_site/posts/testing/',
+    '_site/subpages/',
+  ],
+  copyFiles: '_site/**/*'
 }
 
 var productionDeploy = {
@@ -19,7 +35,6 @@ plan.target( 'staging', [
     host: 'shell.gridhost.co.uk',
     username: 'yewtreew1',
     port: 22,
-    privateKey: '/Users/Mat/.ssh/dev',
     agent: process.env.SSH_AUTH_SOCK
   },
 ]);
@@ -28,7 +43,6 @@ plan.target( 'production', [
     host: 'shell.gridhost.co.uk',
     username: 'yewtreew',
     port: 22,
-    privateKey: '/Users/Mat/.ssh/id_rsa',
     agent: process.env.SSH_AUTH_SOCK
   },
 ]);
@@ -47,13 +61,19 @@ plan.local( function( local ) {
   // rsync files to all the destination's hosts
   if( plan.runtime.target === 'staging' ){
     var deploy = 'staging';
+    var files = local.find('_site/', {silent: true});
+    var indexFile = '_site/index.html';
+    //var files = childFiles.concat(indexFile);
+
+    //var copy = '_site/**/*';
 
     local.log( 'Deploying site folder to ' + deploy );
-    local.transfer( stageDeploy.filesToCopy, config.deployTo + '/' );
+    local.transfer( files, config.deployTo + '/' );
 
   }
   if( plan.runtime.target === 'production' ){
     var deploy = 'production';
+    var files = local.find('build/', {silent: true});
 
     var input = local.prompt( 'Are you sure you want to deploy to production? [yes]' );
     if( input.indexOf('yes') !== -1 ) {
@@ -65,7 +85,7 @@ plan.local( function( local ) {
 
     } else {
 
-      local.log( 'Canceled flight' ); // this will stop the flightplan.
+      plan.abort( 'Canceled flight' ); // this will stop the flightplan.
 
     }
 
@@ -124,7 +144,7 @@ plan.remote( 'rollback', function( remote ) {
     remote.exec( 'rm -rf ' + config.projectDir + '/releases/' + oldCurrent );
   } else {
 
-    remote.log( 'There are no previous releases to rollback to' );
+    plan.abort( 'There are no previous releases to rollback' );
 
   }
 
@@ -150,7 +170,7 @@ plan.remote( 'clean', function( remote ) {
     }
 
   } else {
-    remote.log( 'Aborting clean' );
+    plan.abort( 'Aborting clean' );
   }
 
 });
