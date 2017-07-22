@@ -7,3 +7,18 @@ type:
   - liquid-subpages
 excerpt: Page containing code for Jekyll sites.
 ---
+<!-- if subpages has content -->
+
+{% assign subpage = site.subpages | sort: "categories" %}
+{% assign cat = subpage | where: "categories", 'jekyll' %}
+
+{% for item in cat %}
+
+   {% include content.html %}
+
+{% else %}
+<!-- if subpages don't have content -->
+
+  {% include no-content.html %}
+
+{% endfor %}

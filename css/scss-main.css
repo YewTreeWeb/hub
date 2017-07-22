@@ -13486,11 +13486,11 @@ nav.navbar {
       line-height: 3.35em;
       color: inherit;
       margin-top: 1.5em;
-      transition: all 300ms ease-in-out;
-      -webkit-transition: all 300ms ease-in-out;
-      -moz-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      -ms-transition: all 300ms ease-in-out; }
+      transition: all 250ms ease-in-out;
+      -webkit-transition: all 250ms ease-in-out;
+      -moz-transition: all 250ms ease-in-out;
+      -o-transition: all 250ms ease-in-out;
+      -ms-transition: all 250ms ease-in-out; }
       #pages .area .content button:hover, #pages .area .content button:focus, #pages .area .content button:active {
         background-color: #000000;
         background-color: rgba(0, 0, 0, 0.2); }
@@ -13519,6 +13519,12 @@ nav.navbar {
   #posts > .post .col-lg-5, #posts > .post .col-lg-7 {
     width: 50%; } }
 
+#posts > .post .highlight > pre {
+  margin: 0;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  padding: 20px; }
+
 #posts > .post .post-img {
   overflow: hidden; }
   @media all and (max-width: 1440px) {
@@ -13534,11 +13540,11 @@ nav.navbar {
     display: block;
     border-top: 2.5px solid #222222;
     width: 100px;
-    margin: 0.7em 0 1em; }
+    margin: 0.3em 0 1em; }
   #posts > .post .post-content h3 small {
     text-transform: none;
     display: block;
-    margin-top: 22px;
+    margin-top: 10px;
     letter-spacing: 0.2px;
     line-height: 34px; }
     #posts > .post .post-content h3 small span.cat {
@@ -13559,14 +13565,14 @@ nav.navbar {
     padding: 0;
     color: inherit;
     margin-top: 1.5em;
-    transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -ms-transition: all 300ms ease-in-out; }
+    transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    -moz-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out; }
     #posts > .post .post-content button:hover, #posts > .post .post-content button:focus, #posts > .post .post-content button:active {
-      background-color: #d9534f;
-      background-color: rgba(217, 83, 79, 0.65); }
+      background-color: #333333;
+      color: #fff; }
     #posts > .post .post-content button > a {
       color: inherit;
       text-transform: uppercase;
@@ -13696,5 +13702,10 @@ nav.navbar {
     margin: 0 0 2em 2.5em; }
   #post-container .post-row .post-inner .post-content .highlight {
     margin: 1.8em 0; }
+    #post-container .post-row .post-inner .post-content .highlight > pre {
+      margin: 0;
+      -webkit-border-radius: 0;
+              border-radius: 0;
+      padding: 20px; }
 
 /*# sourceMappingURL=maps/scss-main.css.map */

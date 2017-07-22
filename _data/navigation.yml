@@ -2,38 +2,49 @@
   href: "/areas/javascript/"
   children:
     - childtitle: "Angular"
-      childhref: "/javascript/angular/"
+      childhref: "/areas/javascript/angular.html"
     - childtitle: "jQuery"
-      childhref: "/javascript/jquery/"
+      childhref: "/areas/javascript/jquery.html"
     - childtitle: "ReactJS"
-      childhref: "/javascript/reactjs/"
+      childhref: "/areas/javascript/reactjs.html"
     - childtitle: "Vanilla JavaScript"
-      childhref: "/javascript/vanilla/"
+      childhref: "/areas/javascript/vanilla.html"
 
 - title: "Liquid"
   href: "/areas/liquid/"
   children:
     - childtitle: "Jekyll"
-      childhref: "/liquid/jekyll/"
+      childhref: "/areas/liquid/jekyll.html"
     - childtitle: "Shopify"
-      childhref: "/liquid/shopify/"
+      childhref: "/areas/liquid/shopify.html"
 
 - title: "Other"
   href: "/areas/other/"
 
 - title: "Package Management"
   href: "/areas/package-management/"
+  children:
+    - childtitle: "NPM & Yarn"
+      childhref: "/areas/package-management/npm-yarn.html"
+    - childtitle: "Grunt"
+      childhref: "/areas/package-management/grunt.html"
+    - childtitle: "Gulp"
+      childhref: "/areas/package-management/gulp.html"
+    - childtitle: "Composer"
+      childhref: "/areas/package-management/composer.html"
 
 - title: "PHP"
   href: "/areas/php/"
   children:
     - childtitle: "Vanilla PHP"
-      childhref: "/php/vanilla/"
+      childhref: "/areas/php/vanilla.html"
 
 - title: "Styling"
   href: "/areas/styling/"
   children:
     - childtitle: "Less"
-      childhref: "/styling/less/"
+      childhref: "/areas/styling/less.html"
     - childtitle: "Sass"
-      childhref: "/styling/sass/"
+      childhref: "/areas/styling/sass.html"
+    - childtitle: "Stylus"
+      childhref: "/areas/styling/stylus.html"

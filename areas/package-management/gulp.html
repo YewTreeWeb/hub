@@ -1,16 +1,16 @@
 ---
 layout: area-layout
-title: Other
-description: For all other useful assets. E.g packages such as flightplan and dependacies
+title: Gulp
+description: Coding examples and addons for Gulp.
 type:
   - subpages
   - package-subpages
-excerpt: For all other useful assets. E.g packages and dependacies.
+excerpt: Page containing code examples and addons for Gulp.
 ---
 <!-- if subpages has content -->
 
 {% assign subpage = site.subpages | sort: "categories" %}
-{% assign cat = subpage | where: "categories", 'other' %}
+{% assign cat = subpage | where: "categories", 'gulp' %}
 
 {% for item in cat %}
 
