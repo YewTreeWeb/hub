@@ -15,9 +15,8 @@
 # in the templates via {{ site.myvariable }}.
 name: YewTree Hub
 description: This is a site for me to learn, practice coding and to act as a hub.
-baseurl: "/current/_site/" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://hub.yewtreeweb.co.uk/" # the base hostname & protocol for production site
-devurl: "http://hub.yewtreeweb-test.uk/" # the base hostname and protocol for staging site
 author: Mathew Teague
 paginate: 10
 paginate_path: "/blog/page:num/"
@@ -25,7 +24,7 @@ paginate_path: "/blog/page:num/"
 # Build settings
 markdown: redcarpet
 highlighter: rouge
-exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "yarn.lock"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "yarn.lock", "flightplan.js", "htaccess", ".htaccess"]
 
 # Collections
 collections:

@@ -26,6 +26,7 @@ config.codekit3
 
 ### Jekyll ###
 _site/
+htaccess
 .sass-cache/
 .jekyll-metadata
 .idea
