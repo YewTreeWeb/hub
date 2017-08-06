@@ -1,11 +1,13 @@
 var gulp = require( 'gulp' ),
 // Compile SCSS
+sassdoc = require( 'sassdoc' )
 sass = require( 'gulp-sass' ),
 autoprefixer = require( 'gulp-autoprefixer' ),
 rucksack = require( 'gulp-rucksack' ),
 // CSS
-cssnano = require( 'gulp-cssnano' ),
+minicss = require( 'gulp-minify-css' ),
 csscomb = require( 'gulp-csscomb' ),
+critical = require( 'critical' ),
 // Compile JS
 uglify = require( 'gulp-uglify' ),
 babel  = require( 'gulp-babel' ),
@@ -49,8 +51,31 @@ var config = {
     '_bower/bower_components/jquery-migrate/jquery-migrate.min.js',
     '_bower/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
     '_bower/bower_components/animate.css/animate.css'
-  ]
+  ],
+  browsers = [
+    'last 15 versions',
+    '> 1%',
+    'ie >= 11',
+    'ie_mob >= 10',
+    'firefox >= 30',
+    'Firefox ESR',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 9',
+    'android >= 4.4',
+    'bb >= 10'
+  ],
+
 };
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+}
+var ruckOptions = {
+  fallbacks: true
+}
+
 
 /*---------------
 Error notification
@@ -101,22 +126,40 @@ Sass
 /**
 * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
 */
+
+gulp.task( 'combscss', function(){
+  return gulp.src(['_scss/**/*.scss'], {base: '_scss/'})
+  .pipe( csscomb() )
+  .pipe( gulp.dest( '_scss/' ) );
+});
+
 gulp.task( 'sass', function () {
   return gulp.src( '_scss/**/*.scss' )
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
-  .pipe( sass( {
-    outputStyle: 'nested'
-  } ).on( 'error', handleErrors ) )
-  .pipe( rucksack( {
-    fallbacks: true
-  } ).on( 'error', handleErrors ) )
-  .pipe( autoprefixer( [ 'last 15 versions', '> 1%', 'ie 8', 'ie 7' ], { cascade: true } ) )
+  .pipe( sass( sassOptions ).on( 'error', handleErrors ) )
+  .pipe( rucksack( ruckOptions ).on( 'error', handleErrors ) )
+  .pipe( autoprefixer( , { cascade: true } ) )
+  .pipe( csscomb() )
   .pipe( sourcemaps.write('maps') )
   .pipe( gulp.dest( '_site/css' ) )
   .pipe( reload( { stream:true } ) )
   .pipe( gulp.dest( 'css' ) );
 });
+
+gulp.task('critical', function (cb) {
+    critical.generate({
+        inline: true,
+        base: 'dist/',
+        src: 'index.html',
+        dest: 'dist/index-critical.html',
+        minify: true,
+        width: 320,
+        height: 480
+    });
+});
+
+gulp.task( 'styles', [ 'sass', 'critical' ] );
 
 /*---------------
 JS
@@ -193,6 +236,12 @@ Build
 * Run the HTML min then complete the build
 */
 
+gulp.task('sassdoc', function () {
+  return gulp.src('_scss/**/*.scss')
+    .pipe(sassdoc())
+    .resume();
+});
+
 gulp.task( 'build:clean', function( cb ){
   return del( [ '_site/js', '_site/css' ] , cb );
 } );
@@ -209,7 +258,7 @@ gulp.task( 'build:copy', function(){
   return gulp.src( [ bowercss, bowerjs ] )
   .pipe( gulpif( '*.js', gulp.dest( '_site/js' ) ) )
   .pipe( gulpif( '*.css', gulp.dest( '_site/css' ) ) );
-} );
+} );*/
 
 gulp.task( 'build:cssmin', function(){
   return gulp.src( '_site/css/*.css' )
@@ -217,7 +266,7 @@ gulp.task( 'build:cssmin', function(){
   .pipe( sourcemaps.init() )
   .pipe( concat( 'main.css' ) )
   .pipe( csscomb().on( 'error', handleErrors ) )
-  .pipe( cssnano().on( 'error', handleErrors ) )
+  .pipe( minicss().on( 'error', handleErrors ) )
   .pipe( sourcemaps.write( 'maps') )
   .pipe( gulp.dest( '_site/css' ) );
 } );
@@ -231,7 +280,7 @@ gulp.task( 'build:jsmin', function(){
   .pipe( gulp.dest( '_site/js' ) );
 } );*/
 
-gulp.task( 'build:htmlmin', function(){
+gulp.task( 'build:htmlmin', [ 'sassdoc', 'build:cssmin', 'build:jsmin' ], function(){
   return gulp.src( '_site/**/*.html' )
   .pipe( plumber() )
   .pipe( htmlmin( { collapseWhitespace: true } ).on( 'error', handleErrors ) )
