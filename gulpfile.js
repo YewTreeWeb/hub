@@ -1,14 +1,12 @@
 var gulp = require( 'gulp' ),
 // Compile SCSS
-// sassdoc = require( 'sassdoc' )
 sass = require( 'gulp-sass' ),
 autoprefixer = require( 'gulp-autoprefixer' ),
 rucksack = require( 'gulp-rucksack' ),
 // CSS
 minicss = require( 'gulp-minify-css' ),
 csscomb = require( 'gulp-csscomb' ),
-critical = require( 'critical' ),
-// critical = require( 'critical' ),
+critical = require( 'penthouse' ),
 // Compile JS
 uglify = require( 'gulp-uglify' ),
 babel  = require( 'gulp-babel' ),
@@ -67,16 +65,46 @@ var config = {
     'android >= 4.4',
     'bb >= 10'
   ],
+  jsSrc: [
+    'js/**/*.js',
+    '!js/**/*.min.js',
+    '!js/**/*-min.js',
+    '!js/bootstrap.js',
+    '!js/bootstrap/*.js',
+    '!js/bootstrap.min.js'
+  ],
+  rebuild: [
+    '_config.yml',
+    '_data/navigation.yml',
+    '*.html',
+    '_layouts/*.html',
+    '_posts/**/*',
+    '_includes/*.html',
+    'areas/**/*.html',
+    'blog/*.html',
+    '_subpages/**/*'
+  ]
 
 };
 var sassOptions = {
   errLogToConsole: true,
   outputStyle: 'compressed'
-}
+};
 var ruckOptions = {
   fallbacks: true
+};
+var syncOptions {
+  server: {
+    baseDir: '_site'
+  },
+  injectChanges: true,
+  open: false
+};
+var imgMin = {
+  progressive: true,
+  interlaced: true,
+  svgoPlugins: [ { cleanupIDs: false } ]
 }
-
 
 /*---------------
 Error notification
@@ -114,12 +142,7 @@ gulp.task( 'jekyll-rebuild', [ 'jekyll-build' ], function() {
 * Wait for jekyll-build, then launch the Server
 */
 gulp.task( 'browser-sync', [ 'sass', 'js', 'pug', 'jekyll-build' ], function() {
-  browserSync( {
-    server: {
-      baseDir: '_site'
-    },
-    open: false
-  } );
+  browserSync( syncOptions );
 } );
 
 /*---------------
@@ -149,16 +172,17 @@ gulp.task( 'sass', function () {
   .pipe( gulp.dest( 'css' ) );
 });
 
-gulp.task('critical', function () {
-  critical.generate({
-    base: './',
-    src: '_site/index.html',
-    css: '_site/css/scss-main.css',
-    dest: 'css/critical.css',
-    width: 320,
-    height: 480,
-    minify: true
-  });
+gulp.task('critical-css', function () {
+return gulp.src('css/scss-main.css')
+.pipe(critical({
+out: 'critical.html', // output file name
+url: '_site/index.html', // url from where we want penthouse to extract critical styles
+width: 1400, // max window width for critical media queries
+height: 900, // max window height for critical media queries
+userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' // pretend to be googlebot when grabbing critical page styles.
+}))
+.pipe(minicss())
+.pipe(gulp.dest('_includes')); // destination folder for the output file
 });
 
 
@@ -171,7 +195,7 @@ JS
 * Compile files from js into both _site/js (for live injecting) and site (for future jekyll builds)
 */
 gulp.task( 'js', function() {
-  return gulp.src( [ 'js/**/*.js', '!js/**/*.min.js', '!js/**/*-min.js', '!js/bootstrap.js', '!js/bootstrap/*.js', '!js/bootstrap.min.js' ] )
+  return gulp.src( config.jsSrc )
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( babel().on( 'error', handleErrors ) )
@@ -188,11 +212,7 @@ gulp.task( 'image', function() {
   return gulp.src( 'images/**/*.+(png|jpg|jpeg|gif|svg)' )
   .pipe( plumber() )
   .pipe( changed( 'images' ) )
-  .pipe( cache( imagemin( {
-    progressive: true,
-    interlaced: true,
-    svgoPlugins: [ { cleanupIDs: false } ]
-  } ) ).on( 'error', handleErrors ) )
+  .pipe( cache( imagemin( imgMin ) ).on( 'error', handleErrors ) )
   .pipe( gulp.dest( 'images' ) );
 } );
 
@@ -228,7 +248,7 @@ gulp.task( 'watch', function () {
   gulp.watch( 'js/**/*.js', [ 'js' ] );
   gulp.watch( '_pug/*.pug', [ 'pug' ] );
   gulp.watch( 'images/**/*.+(png|jpg|jpeg|gif|svg)', [ 'image' ] );
-  gulp.watch( [ '_config.yml', '_data/navigation.yml', '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html', 'areas/**/*.html', 'blog/*.html', '_subpages/**/*' ], [ 'jekyll-rebuild' ]);
+  gulp.watch( config.rebuild, [ 'jekyll-rebuild' ]);
 } );
 
 /*---------------
@@ -238,12 +258,6 @@ Build
 * Useref concats all files with a <!-- build tag
 * Run the HTML min then complete the build
 */
-
-// gulp.task('sassdoc', function () {
-//   return gulp.src('_scss/**/*.scss')
-//     .pipe(sassdoc())
-//     .resume();
-// });
 
 gulp.task( 'build:clean', function( cb ){
   return del( [ '_site/js', '_site/css' ] , cb );
