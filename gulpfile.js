@@ -185,7 +185,6 @@ userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.h
 .pipe(gulp.dest('_includes')); // destination folder for the output file
 });
 
-
 gulp.task( 'styles', [ 'sass', 'critical' ] );
 
 /*---------------
