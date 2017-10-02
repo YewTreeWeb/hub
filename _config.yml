@@ -32,6 +32,7 @@ collections:
     output: true
 
 # Plugins
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-typogrify
