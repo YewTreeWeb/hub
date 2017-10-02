@@ -6,7 +6,6 @@ rucksack = require( 'gulp-rucksack' ),
 // CSS
 minicss = require( 'gulp-minify-css' ),
 csscomb = require( 'gulp-csscomb' ),
-critical = require( 'penthouse' ),
 // Compile JS
 uglify = require( 'gulp-uglify' ),
 babel  = require( 'gulp-babel' ),
@@ -93,13 +92,13 @@ var sassOptions = {
 var ruckOptions = {
   fallbacks: true
 };
-var syncOptions {
+var syncOptions = {
   server: {
     baseDir: '_site'
   },
   injectChanges: true,
   open: false
-};
+}
 var imgMin = {
   progressive: true,
   interlaced: true,
@@ -165,27 +164,11 @@ gulp.task( 'sass', function () {
   .pipe( sass( sassOptions ).on( 'error', handleErrors ) )
   .pipe( rucksack( ruckOptions ).on( 'error', handleErrors ) )
   .pipe( autoprefixer( config.browsers, { cascade: true } ) )
-  .pipe( csscomb() )
   .pipe( sourcemaps.write('maps') )
   .pipe( gulp.dest( '_site/css' ) )
   .pipe( reload( { stream:true } ) )
   .pipe( gulp.dest( 'css' ) );
 });
-
-gulp.task('critical-css', function () {
-return gulp.src('css/scss-main.css')
-.pipe(critical({
-out: 'critical.html', // output file name
-url: '_site/index.html', // url from where we want penthouse to extract critical styles
-width: 1400, // max window width for critical media queries
-height: 900, // max window height for critical media queries
-userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' // pretend to be googlebot when grabbing critical page styles.
-}))
-.pipe(minicss())
-.pipe(gulp.dest('_includes')); // destination folder for the output file
-});
-
-gulp.task( 'styles', [ 'sass', 'critical' ] );
 
 /*---------------
 JS

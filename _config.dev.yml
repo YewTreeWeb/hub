@@ -16,7 +16,7 @@
 name: YewTree Hub
 description: This is a site for me to learn, practice coding and to act as a hub.
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "http://hub.yewtreeweb.co.uk/" # the base hostname & protocol for production site
+url: "http://localhost:3000/" # the base hostname & protocol for production site
 author: Mathew Teague
 paginate: 10
 paginate_path: "/blog/page:num/"
