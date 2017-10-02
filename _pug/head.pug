@@ -4,6 +4,12 @@ head
   title {{ page.title }}
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=nshrink-to-fit=no">
 
+  <!-- Inline critical css -->
+  //- <style type="text/css">{% include critical.css %}</style>
+
+  <!-- Load CSS -->
+  //- script(src="{% link /js/loadCSS.js %}")
+
   <!--build:css(.) css/main.min.css -->
   <link rel="stylesheet" href="{% link /css/scss-main.css %}">
   //- <link rel="stylesheet" href="/css/animate.css">

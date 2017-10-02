@@ -6,7 +6,6 @@ rucksack = require( 'gulp-rucksack' ),
 // CSS
 minicss = require( 'gulp-minify-css' ),
 csscomb = require( 'gulp-csscomb' ),
-critical = require( 'gulp-penthouse' ),
 // Compile JS
 uglify = require( 'gulp-uglify' ),
 babel  = require( 'gulp-babel' ),
@@ -65,16 +64,46 @@ var config = {
     'android >= 4.4',
     'bb >= 10'
   ],
+  jsSrc: [
+    'js/**/*.js',
+    '!js/**/*.min.js',
+    '!js/**/*-min.js',
+    '!js/bootstrap.js',
+    '!js/bootstrap/*.js',
+    '!js/bootstrap.min.js'
+  ],
+  rebuild: [
+    '_config.yml',
+    '_data/navigation.yml',
+    '*.html',
+    '_layouts/*.html',
+    '_posts/**/*',
+    '_includes/*.html',
+    'areas/**/*.html',
+    'blog/*.html',
+    '_subpages/**/*'
+  ]
 
 };
 var sassOptions = {
   errLogToConsole: true,
-  outputStyle: 'expanded'
-}
+  outputStyle: 'compressed'
+};
 var ruckOptions = {
   fallbacks: true
+};
+var syncOptions = {
+  server: {
+    baseDir: '_site'
+  },
+  injectChanges: true,
+  open: false
 }
-
+var imgMin = {
+  progressive: true,
+  interlaced: true,
+  svgoPlugins: [ { cleanupIDs: false } ]
+}
 
 /*---------------
 Error notification
@@ -112,11 +141,7 @@ gulp.task( 'jekyll-rebuild', [ 'jekyll-build' ], function() {
 * Wait for jekyll-build, then launch the Server
 */
 gulp.task( 'browser-sync', [ 'sass', 'js', 'pug', 'jekyll-build' ], function() {
-  browserSync( {
-    server: {
-      baseDir: '_site'
-    }
-  } );
+  browserSync( syncOptions );
 } );
 
 /*---------------
@@ -152,7 +177,7 @@ JS
 * Compile files from js into both _site/js (for live injecting) and site (for future jekyll builds)
 */
 gulp.task( 'js', function() {
-  return gulp.src( [ 'js/**/*.js', '!js/**/*.min.js', '!js/**/*-min.js', '!js/bootstrap.js', '!js/bootstrap/*.js', '!js/bootstrap.min.js' ] )
+  return gulp.src( config.jsSrc )
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( babel().on( 'error', handleErrors ) )
@@ -169,11 +194,7 @@ gulp.task( 'image', function() {
   return gulp.src( 'images/**/*.+(png|jpg|jpeg|gif|svg)' )
   .pipe( plumber() )
   .pipe( changed( 'images' ) )
-  .pipe( cache( imagemin( {
-    progressive: true,
-    interlaced: true,
-    svgoPlugins: [ { cleanupIDs: true } ]
-  } ) ).on( 'error', handleErrors ) )
+  .pipe( cache( imagemin( imgMin ) ).on( 'error', handleErrors ) )
   .pipe( gulp.dest( 'images' ) );
 } );
 
@@ -209,7 +230,7 @@ gulp.task( 'watch', function () {
   gulp.watch( 'js/**/*.js', [ 'js' ] );
   gulp.watch( '_pug/*.pug', [ 'pug' ] );
   gulp.watch( 'images/**/*.+(png|jpg|jpeg|gif|svg)', [ 'image' ] );
-  gulp.watch( [ '_config.yml', '_data/navigation.yml', '*.html', '_layouts/*.html', '_posts/**/*', '_includes/*.html', 'areas/**/*.html', 'blog/*.html', '_subpages/**/*' ], [ 'jekyll-rebuild' ]);
+  gulp.watch( config.rebuild, [ 'jekyll-rebuild' ]);
 } );
 
 /*---------------
