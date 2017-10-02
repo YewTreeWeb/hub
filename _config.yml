@@ -25,6 +25,7 @@ paginate_path: "/blog/page:num/"
 markdown: redcarpet
 highlighter: rouge
 exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "yarn.lock", "flightplan.js", "htaccess", ".htaccess"]
+environment: development
 
 # Collections
 collections:
