@@ -1,0 +1,11 @@
+# Deploy Settings
+config:
+  projectDir: ~/subdomains/hub
+  releaseDir: '~/subdomains/deploy'
+  keepReleases: 5
+
+target:
+  host: 'shell.gridhost.co.uk'
+  username: 'yewtreew1'
+  port: 22
+  agent: process.env.SSH_AUTH_SOCK

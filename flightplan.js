@@ -1,4 +1,5 @@
 var plan = require('flightplan');
+var config = require('_data/deploy.yml');
 
 var config = {
   projectDir: '~/subdomains/hub',
