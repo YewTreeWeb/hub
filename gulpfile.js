@@ -1,13 +1,13 @@
 var gulp = require( 'gulp' ),
 // Compile SCSS
-sassdoc = require( 'sassdoc' )
+// sassdoc = require( 'sassdoc' )
 sass = require( 'gulp-sass' ),
 autoprefixer = require( 'gulp-autoprefixer' ),
 rucksack = require( 'gulp-rucksack' ),
 // CSS
 minicss = require( 'gulp-minify-css' ),
 csscomb = require( 'gulp-csscomb' ),
-critical = require( 'critical' ),
+// critical = require( 'critical' ),
 // Compile JS
 uglify = require( 'gulp-uglify' ),
 babel  = require( 'gulp-babel' ),
@@ -52,7 +52,7 @@ var config = {
     '_bower/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
     '_bower/bower_components/animate.css/animate.css'
   ],
-  browsers = [
+  browsers: [
     'last 15 versions',
     '> 1%',
     'ie >= 11',
@@ -65,8 +65,7 @@ var config = {
     'ios >= 9',
     'android >= 4.4',
     'bb >= 10'
-  ],
-
+  ]
 };
 var sassOptions = {
   errLogToConsole: true,
@@ -139,7 +138,7 @@ gulp.task( 'sass', function () {
   .pipe( sourcemaps.init() )
   .pipe( sass( sassOptions ).on( 'error', handleErrors ) )
   .pipe( rucksack( ruckOptions ).on( 'error', handleErrors ) )
-  .pipe( autoprefixer( , { cascade: true } ) )
+  .pipe( autoprefixer( config.browsers, { cascade: true } ) )
   .pipe( csscomb() )
   .pipe( sourcemaps.write('maps') )
   .pipe( gulp.dest( '_site/css' ) )
@@ -147,17 +146,17 @@ gulp.task( 'sass', function () {
   .pipe( gulp.dest( 'css' ) );
 });
 
-gulp.task('critical', function (cb) {
-    critical.generate({
-        inline: true,
-        base: 'dist/',
-        src: 'index.html',
-        dest: 'dist/index-critical.html',
-        minify: true,
-        width: 320,
-        height: 480
-    });
-});
+// gulp.task('critical', function (cb) {
+//     critical.generate({
+//         inline: true,
+//         base: 'dist/',
+//         src: 'index.html',
+//         dest: 'dist/index-critical.html',
+//         minify: true,
+//         width: 320,
+//         height: 480
+//     });
+// });
 
 gulp.task( 'styles', [ 'sass', 'critical' ] );
 
@@ -236,11 +235,11 @@ Build
 * Run the HTML min then complete the build
 */
 
-gulp.task('sassdoc', function () {
-  return gulp.src('_scss/**/*.scss')
-    .pipe(sassdoc())
-    .resume();
-});
+// gulp.task('sassdoc', function () {
+//   return gulp.src('_scss/**/*.scss')
+//     .pipe(sassdoc())
+//     .resume();
+// });
 
 gulp.task( 'build:clean', function( cb ){
   return del( [ '_site/js', '_site/css' ] , cb );
@@ -278,7 +277,7 @@ gulp.task( 'build:jsmin', function(){
   .pipe( uglify().on( 'error', handleErrors ) )
   .pipe( sourcemaps.write( 'maps') )
   .pipe( gulp.dest( '_site/js' ) );
-} );*/
+} );
 
 gulp.task( 'build:htmlmin', [ 'sassdoc', 'build:cssmin', 'build:jsmin' ], function(){
   return gulp.src( '_site/**/*.html' )

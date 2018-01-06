@@ -26,5 +26,8 @@
     "animate.css": "^3.5.2",
     "bootstrap-sass": "^3.3.7",
     "css-hamburgers": "^0.8.1"
+  },
+  "dependencies": {
+    "lunr": "^2.1.5"
   }
 }
