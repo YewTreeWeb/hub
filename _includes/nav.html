@@ -18,22 +18,27 @@
       <ul class="nav navbar-nav">
         <li {% if page.url == "{{ site.baseurl }}" %}class="active"{% endif %}><a href="{{ site.baseurl }}">Home</a></li>
         {% for nav in site.data.navigation %}
-          {% if nav.children != null %}
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ nav.href }}">{{ nav.title }} <span class="caret"></span></a>
-              <ul class="dropdown-menu submenu">
-              {% for child in nav.children %}
-                <li><a href="{{ child.childhref }}">{{ child.childtitle }}</a></li>
-              {% endfor %}
-              </ul>
-            </li>
-          {% else %}
-            <li><a href="{{ nav.href }}">{{ nav.title }}</a></li>
-          {% endif %}
+        {% if nav.children != null %}
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ nav.href }}">{{ nav.title }} <span class="caret"></span></a>
+          <ul class="dropdown-menu submenu">
+            {% for child in nav.children %}
+            <li><a href="{{ child.childhref }}">{{ child.childtitle }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% else %}
+        <li><a href="{{ nav.href }}">{{ nav.title }}</a></li>
+        {% endif %}
         {% endfor %}
         <li {% if page.url contains "blog" or page.path contains '_posts' %}class="active"{% endif %}><a href="{{ site.baseurl }}blog/index.html">Blog</a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
+    <form action="/search.html" method="get">
+      <label for="search-box">Search</label>
+      <input type="text" id="search-box" name="query">
+      <input type="submit" value="search">
+    </form>
   </div><!-- /.container-fluid -->
 </nav>
