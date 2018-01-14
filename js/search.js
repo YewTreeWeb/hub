@@ -14,12 +14,13 @@
 				} else {
 					var img = item.hero;
 				}
-				appendString += '<li class="post-container"><a href="' + item.url + '"><div class="post-inner"><h3>' + item.title + '</h3>';
+				appendString += '<li class="post-container col-xs-12 col-sm-4"><div class="post-inner"><h3><a href="' + item.url + '">' + item.title + '</a></h3>';
 				if (item.date || item.time) {
 					appendString += '<span class="date"><i class="fa fa-calendar"></i>' + item.date + '</span>';
 					appendString += '<span class="time"><i class="fa fa-clock-o"></i>' + item.time + '</span>';
 				}
-				appendString += '<p>' + item.content.substring(0, 150) + '...</p></div></a></li>';
+				appendString += '<p>' + item.content.substring(0, 150) + '...</p>';
+				appendString += '<a href="' + item.url + '"><button class="btn btn-danger btn-lg" type="button" role="button">Read More</button></a></div></li>';
 			}
 
 			searchResults.innerHTML = appendString;
@@ -73,5 +74,22 @@
 		}
 	}
 })();
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
+//# sourceMappingURL=maps/search.js.map
 //# sourceMappingURL=maps/search.js.map
 //# sourceMappingURL=maps/search.js.map

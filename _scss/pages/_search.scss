@@ -1,0 +1,84 @@
+#search{
+	padding-top: 2em;
+	padding-bottom: 3em;
+	h2{
+		font-size: $h3;
+	}
+
+	.form-inline{
+		padding: 11px 0;
+		margin-bottom: 4em;
+		.form-group{
+			width: 96%;
+			@include breakpoint(number,null,null,null,0,1199px){
+				width: calc(100% - 46px);
+			}
+			> input{
+				width: 100%;
+				height: 40px;
+				text-transform: uppercase;
+				@include call-to-action(false){
+					border-color: $brand-danger;
+					@include placeholder($brand-danger);
+					box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba($brand-danger, .6);
+				}
+			}
+		}
+		> button{
+			height: 40px;
+			@include call-to-action{
+				background-color: $brand-danger;
+				border-color: darken($brand-danger, 10%);
+				> i{
+					color: $white;
+				}
+			}
+		}
+	}
+
+	#search-results{
+		list-style: none;
+		padding-left: 0;
+		display: flex;
+		align-content: center;
+		justify-content: flex-start;
+		flex-direction: row;
+		flex-wrap: wrap;
+		.post-container{
+			background-color: $light-gray;
+			border: 1px solid darken($light-gray,6%);
+			padding: 2% 4%;
+			margin-right: 15px;
+			&:last-child{
+				margin-right: 0;
+			}
+			.post-inner{
+				> h3{
+					a{
+						color: $black;
+						@include call-to-action{
+							color: $brand-danger;
+						}
+					}
+				}
+				span{
+					display: inline-flex;
+					align-items: center;
+					margin: 10px 0;
+					line-height: 26px;
+					color: $gray-light;
+					&:first-of-type{
+						margin-right: 10px;
+					}
+					> i{
+						margin-right: 5px;
+					}
+				}
+				button{
+					margin: 3.5% 0;
+				}
+			}
+		}
+	}
+
+}
