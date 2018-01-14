@@ -1,0 +1,6 @@
+a {
+	@include call-to-action{
+		text-decoration: none;
+		color: $brand-danger;
+	}
+}

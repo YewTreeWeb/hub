@@ -1,0 +1,10 @@
+// Convert PX to EM
+$font-var: $font-size;
+@function em($pixels, $context: $font-var) {
+	@return #{$pixels/$context}em;
+}
+// Convert PX to REM
+@function rem($size) {
+	$remSize: $size / $font-var;
+	@return #{$remSize}rem;
+}

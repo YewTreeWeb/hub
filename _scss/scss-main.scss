@@ -1,28 +1,47 @@
 /**
-  1 - Assets
-      - Bootstrap
-      - Syntax
-      - Hover
-      - Animate.css
-      - Font Awesome
-      - Hamburger Icons
-  2 - Custom Assets
-      - Global Elements
-  3 - Pages
-      - Homepage
+	1 - Assets
+			- Bootstrap
+			- Font Awesome
+			- Hover
+			- Jekyll Reset
+			- Syntax
+	2 - Assets
+			- Variables
+			- Mixins
+	3 - Components
+			- Header
+			- Footer
+			- Hero
+			- Page Tabs
+			- Posts
+	5 - Pages
+			- Blog
+			- Post
+			- Subpages
+			- Search
 **/
 
 /*------------------------------------
-  1 - Assets
+	1 - Assets
 ------------------------------------*/
-@import "assets/assets";
+@import "core/core";
 
 /*------------------------------------
  2 - Custom Assets
 ------------------------------------*/
-@import "custom-assets/custom-assets";
+@import "assets/assets";
 
 /*------------------------------------
-  3 - Pages
+	3 - Components
 ------------------------------------*/
-@import "pages/child-pages";
+@import "components/components";
+
+/*------------------------------------
+	4 - Partials
+------------------------------------*/
+@import "partials/partials";
+
+/*------------------------------------
+	5 - Pages
+------------------------------------*/
+@import "pages/pages";

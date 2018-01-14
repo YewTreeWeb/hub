@@ -1,0 +1,7 @@
+projectDir: ~/subdomains/hub
+releaseDir: ~/subdomains/deploy
+keepReleases: 5
+host: shell.gridhost.co.uk
+dev: yewtreew1
+main: yewtreew
+port: 22

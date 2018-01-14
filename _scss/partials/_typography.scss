@@ -1,0 +1,62 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+$headings: ( h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, h6: $h6 );
+
+@each $heading, $size in $headings{
+	#{$heading}{
+		font-size: $size;
+		font-family: $headers
+	}
+}
+
+// Alignments
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+// Modifiers
+.bold {
+	font-weight: bold;
+}
+
+.semibold {
+	font-weight: 600;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.no-line-height {
+	line-height: 1em !important;
+}
+
+// Fonts
+@font-face {
+	font-family: 'oneday';
+	src: url('../fonts/One-Day.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/One-Day.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		url('../fonts/One-Day.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/One-Day.woff') format('woff'), /* Pretty Modern Browsers */
+		url('../fonts/One-Day.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

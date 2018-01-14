@@ -1,0 +1,63 @@
+//css transition
+@mixin transition($prop: all, $time: 1s, $ease: ease) {
+    transition: $prop $time $ease;
+    -webkit-transition: $prop $time $ease;
+    -moz-transition: $prop $time $ease;
+    -o-transition: $prop $time $ease;
+    -ms-transition: $prop $time $ease;
+}
+
+//css transition-delay
+@mixin transition-delay($time){
+    transition-delay: $time;
+    -webkit-transition-delay: $time;
+    -moz-transition-delay: $time;
+    -o-transition-delay: $time;
+    -ms-transition-delay: $time;
+}
+
+//css transform
+@mixin transform($string){
+    -webkit-transform: $string;
+    -moz-transform: 	 $string;
+    -ms-transform: 		 $string;
+    -o-transform: 		 $string;
+}
+
+// Animation
+@mixin animation($animate...) {
+	$max: length($animate);
+	$animations: '';
+
+	@for $i from 1 through $max {
+		$animations: #{$animations + nth($animate, $i)};
+
+		@if $i < $max {
+			$animations: #{$animations + ', '};
+		}
+	}
+
+	-webkit-animation: $animations;
+	-moz-animation: $animations;
+	-o-animation: $animations;
+	animation: $animations;
+}
+
+// Keyframes
+@mixin keyframes($animationName) {
+	@-webkit-keyframes #{$animationName} {
+		@content;
+	}
+
+	@-moz-keyframes #{$animationName} {
+		@content;
+	}
+
+	@-o-keyframes #{$animationName} {
+		@content;
+	}
+
+	@keyframes #{$animationName} {
+		@content;
+	}
+}

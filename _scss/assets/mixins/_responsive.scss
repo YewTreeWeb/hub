@@ -1,0 +1,170 @@
+// Bootstrap Breakpoints
+@mixin bootstrap-breakpoint($class, $min: true, $max: true){
+  @if $class == xs and $min {
+    @media (min-width: 767px) { @content; }
+  }
+  @else if $class == xs and $max {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $class == sm and $min {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $class == sm and $max {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $class == md and $min {
+    @media (min-width: 992px) { @content; }
+  }
+  @else if $class == md and $max {
+    @media (max-width: 992px) { @content; }
+  }
+  @else if $class == lg and $min {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $class == lg and $max {
+    @media (max-width: 1200px) { @content; }
+  }
+  @else {
+    @warn "You must say whether the breakpoint is for: xs, sm, md, lg with either a minium or maxiumn values of true or false";
+  }
+}
+// Custom Breakpoints
+@mixin number-breakpoint($min: 0, $max: 0){
+  $query: "all" !default;
+  @if $min != 0 and $max != 0 {
+    $query: "(min-width: #{$min}) and (max-width: #{$max})";
+  }
+  @else if $min != 0 and $max == 0 {
+    $query: "(min-width: #{$min})";
+  }
+  @else if $min == 0 and $max != 0 {
+    $query: "(max-width: #{$max})";
+  }
+  @media #{$query} {
+    @content;
+  }
+}
+// Screen Size Breakpoints
+@mixin screen-breakpoint($type, $min: true, $max: true){
+  @if $type == 'xl' and $min {
+    $query: "(min-width: 1920px)";
+  }
+  @else if $type == 'xl' and $max {
+    $query: "(max-width: 1920px)";
+  }
+  @else if $type == 'lg' and $min {
+    $query: "(min-width: 1440px)";
+  }
+  @else if $type == 'lg' and $max {
+    $query: "(max-width: 1440px)";
+  }
+  @else if $type == 'md' and $min {
+    $query: "(min-width: 1366px)";
+  }
+  @else if $type == 'md' and $max {
+    $query: "(max-width: 1366px)";
+  }
+  @else if $type == 'sm' and $min {
+    $query: "(min-width: 800px)";
+  }
+  @else if $type == 'sm' and $max {
+    $query: "(max-width: 800px)";
+  }
+  @else if $type == 'ipad-pro-w' and $min {
+    $query: "(min-width: 1366px)";
+  }
+  @else if $type == 'ipad-pro-w' and $max {
+    $query: "(max-width: 1366px)";
+  }
+  @else if $type == 'ipad-pro-p' and $min {
+    $query: "(min-width: 1024px)";
+  }
+  @else if $type == 'ipad-pro-p' and $max {
+    $query: "(max-width: 1024px)";
+  }
+  @else if $type == 'ipad-pro' and $min and $max {
+    $query: "(min-width: 1024px) and (max-width: 1366px)";
+  }
+  @else if $type == 'ipad-w' and $min {
+    $query: "(min-width: 1024px)";
+  }
+  @else if $type == 'ipad-w' and $max {
+    $query: "(max-width: 1024px)";
+  }
+  @else if $type == 'ipad-p' and $min {
+    $query: "(min-width: 768px)";
+  }
+  @else if $type == 'ipad-p' and $max {
+    $query: "(max-width: 768px)";
+  }
+  @else if $type == 'ipad' and $min and $max {
+    $query: "(min-width: 768px) and (max-width: 1024px)";
+  }
+  @else if $type == 'iphone-plus-w' and $min {
+    $query: "(min-width: 736px)";
+  }
+  @else if $type == 'iphone-plus-w' and $max {
+    $query: "(max-width: 736px)";
+  }
+  @else if $type == 'iphone-plus-p' and $min {
+    $query: "(min-width: 414px)";
+  }
+  @else if $type == 'iphone-plus-p' and $max {
+    $query: "(max-width: 414px)";
+  }
+  @else if $type == 'iphone-plus' and $min and $max {
+    $query: "(min-width: 414px) and (max-width: 736px)";
+  }
+  @else if $type == 'iphone-w' and $min {
+    $query: "(min-width: 667px)";
+  }
+  @else if $type == 'iphone-w' and $max {
+    $query: "(max-width: 667px)";
+  }
+  @else if $type == 'iphone-p' and $min {
+    $query: "(min-width: 375px)";
+  }
+  @else if $type == 'iphone-p' and $max {
+    $query: "(max-width: 375px)";
+  }
+  @else if $type == 'iphone' and $min and $max {
+    $query: "(min-width: 375px) and (max-width: 667px)";
+  }
+  @else if $type == 'iphone5-w' and $min {
+    $query: "(min-width: 568px)";
+  }
+  @else if $type == 'iphone5-w' and $max {
+    $query: "(max-width: 568px)";
+  }
+  @else if $type == 'iphone5-p' and $min {
+    $query: "(min-width: 320px)";
+  }
+  @else if $type == 'iphone5-p' and $max {
+    $query: "(max-width: 320px)";
+  }
+  @else if $type == 'iphone5' and $min and $max {
+    $query: "(min-width: 320px) and (max-width: 568px)";
+  }
+  @else if $type == 'nexus-w' and $min {
+    $query: "(min-width: 732px)";
+  }
+  @else if $type == 'nexus-w' and $max {
+    $query: "(max-width: 732px)";
+  }
+  @else if $type == 'nexus-p' and $min {
+    $query: "(min-width: 412px)";
+  }
+  @else if $type == 'nexus-p' and $max {
+    $query: "(max-width: 412px)";
+  }
+  @else if $type == 'nexus' and $min and $max {
+    $query: "(min-width: 412px) and (max-width: 732px)";
+  }
+  @else {
+    @warn "Mixin only supports: ipad-pro-w, ipad-pro-p, ipad-pro, ipad-w, ipad-p, ipad, iphone-plus-w, iphone-plus-p, iphone-plus, iphone-w, iphone-p, iphone, iphone5-w, iphone5-p, iphone5, nexus-w, nexus-p, nexus, sm, md, lg, xl";
+    @warn "Mixin only supports either max or min for sm, md, lg and xl sizes";
+  }
+  @media #{$query} {
+    @content;
+  }
+}

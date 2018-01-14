@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+# Import all core asset modules for site
+--------------------------------------------------------------*/
+// Bootstrap
+@import "./_bower/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// Font Awesome
+@import "./_bower/bower_components/font-awesome/scss/font-awesome";
+
+// Hover CSS
+@import "./_bower/bower_components/hover/scss/hover";
+
+// Jekyll reset
+@import 'jekyll-reset';
+
+// Syntax
+@import 'syntax';

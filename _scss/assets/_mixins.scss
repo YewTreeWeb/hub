@@ -1,0 +1,149 @@
+/*--------------------------------------------------------------
+# Mixins and Import Mixins
+--------------------------------------------------------------*/
+// Base styling mixins
+@import "mixins/base";
+// Transitions and animations
+@import "mixins/transition-animation";
+// Transforms
+@import "mixins/transforms";
+// Responsive
+@import "mixins/responsive";
+// Legacy support
+@import "mixins/legacy";
+// Typography support
+@import "mixins/typography";
+
+// Position
+@mixin position($horizontal: true, $vertical: true){
+	position: absolute;
+	margin: 0 auto;
+	@if ($horizontal and $vertical) {
+		top: 50%;
+		left: 0;
+		right: 0;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+	} @else if ($horizontal) {
+		left: 0;
+		right: 0;
+	} @else if ($vertical) {
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+	}
+}
+
+// Flex
+@mixin flex($align, $justify, $direction, $wrap: true){
+	display: flex;
+	align-items: $align;
+
+	@if $justify == 'space-evenly'{
+		justify-content: space-between;
+		justify-content: $justify;
+		@supports (-ms-ime-align: auto) {
+			justify-content: space-between;
+		}
+	}
+	@else {
+		justify-content: $justify;
+	}
+	@if $wrap {
+		flex-direction: $direction;
+		flex-wrap: wrap;
+	}
+	@else {
+		flex-direction: $direction;
+		flex-wrap: nowrap;
+		@include breakpoint(number,null,null,null,0,500px){
+			@if $direction == 'row' {
+				flex-direction: column;
+			}
+			@else if $direction == 'row-reverse' {
+				flex-direction: column-reverse;
+			}
+		}
+	}
+}
+
+// width
+@mixin size( $width, $height ){
+	@if $width and $height{
+		width: $width;
+		height: $height;
+	} @else if $width{
+		width: $width;
+	} @else if $height{
+		height: $height;
+	} @else {
+		width: 0;
+		height: 0;
+	}
+}
+
+// Active, Focus and Hover
+@mixin call-to-action( $hover: true, $active: true, $focus: true){
+	@if $hover and $active and $focus {
+		&:hover, &:active, &:focus{
+			@content;
+		}
+	}
+	@else if $hover{
+		&:hover{
+			@content;
+		}
+	}
+	@else if $active{
+		&:active{
+			@content;
+		}
+	}
+	@else if $focus{
+		&:focus{
+			@content;
+		}
+	}
+	@else {
+		@error "You must have an '#{$hover}' and/or '#{$active}' and/or '#{$focus}'.";
+	}
+}
+
+// Background Overlay
+@mixin overlay($content: '', $color: $black, $alpha: 0.3){
+	&::before{
+		content: $content;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color,$alpha);
+		@include position;
+	}
+}
+
+// Breakpoints
+@mixin breakpoint($type, $class, $min: true, $max: true, $size-min: 0, $size-max: 0){
+	@if $type == screen{
+		@include screen-breakpoint($class, $min, $max){
+			@content;
+		}
+	}
+	@else if $type == bootstrap{
+		@include bootstrap-breakpoint($class, $min, $max){
+			@content;
+		}
+	}
+	@else if $type == number{
+		@include number-breakpoint($size-min,$size-max){
+			@content;
+		}
+	}
+	@else {
+		@warn 'Type must be either screen, bootstrap or number'
+	}
+}

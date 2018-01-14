@@ -1,0 +1,33 @@
+//border-radius
+@mixin radius($radius){
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-o-border-radius: $radius;
+	-ms-border-radius: $radius;
+}
+
+//box-shadow
+@mixin drop-shadow($x: 0px, $y: 0px, $blur: 0px, $alpha: 0.5){
+	box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+	-webkit-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+	-moz-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+	-o-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+	-ms-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+}
+
+//border
+@mixin border($border-color, $border-width: 2px, $border-style: solid){
+	border-color: $border-color;
+	border-width: $border-width;
+	border-style: $border-style;
+}
+
+//css placeholder
+@mixin placeholder($color: $brand-primary){
+	::-webkit-input-placeholder { color: $color;}
+	:-moz-placeholder {color: $color;}
+	::-moz-placeholder {color: $color;}
+	:-ms-input-placeholder {color: $color;}
+	:-o-input-placeholder {color: $color;}
+}

@@ -35,11 +35,11 @@ Grid
 ------------------------------*/
 
 .container-xl {
-  @include container-fixed;
+	@include container-fixed;
 
-  @media (min-width: $screen-xl-min) {
-    width: $container-xl;
-  }
+	@media (min-width: $screen-xl-min) {
+		width: $container-xl;
+	}
 }
 
 // Extra large grid
@@ -47,15 +47,15 @@ Grid
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
 @media (min-width: $screen-xl-min) {
-  @include make-grid(xl);
+	@include make-grid(xl);
 }
 
 .container-sl {
-  @include container-fixed;
+	@include container-fixed;
 
-  @media (min-width: $screen-sl-min) {
-    width: $container-sl;
-  }
+	@media (min-width: $screen-sl-min) {
+		width: $container-sl;
+	}
 }
 
 // Extra large grid
@@ -63,7 +63,7 @@ Grid
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
 @media (min-width: $screen-sl-min) {
-  @include make-grid(sl);
+	@include make-grid(sl);
 }
 
 /*------------------------------
@@ -75,6 +75,9 @@ $silver: #dcdcdc !default;
 $alto-gray: #ddd !default;
 $light-gray: lighten($alto-gray,10.7%);
 
+// custom colours
+
+$colours: ('white': $white, 'black': $black, 'gray': $gray, 'silver': $silver);
 
 /*------------------------------
 Font
@@ -83,15 +86,6 @@ $font: $font-family-base !default;
 $headers: $font-family-serif !default;
 $sans: $font-family-sans-serif !default;
 $special: "oneday" !default;
-
-@font-face {
-  font-family: 'oneday';
-  src: url('../fonts/One-Day.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/One-Day.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../fonts/One-Day.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/One-Day.woff') format('woff'), /* Pretty Modern Browsers */
-    url('../fonts/One-Day.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
 
 //------------------------------
 // Font Sizes
@@ -115,34 +109,11 @@ $font-xs:    $font-sm - 2 !default;
 Global Elements
 ------------------------------*/
 body{
-  position: relative;
-  margin: 0;
-  padding-bottom: 6.4%;
-  min-height: 100%;
-  @media all and (max-width: 1440px){
-    padding-bottom: 12.4%;
-  }
-}
-.no-padding{
-  padding: 0;
-}
-.no-padding-right{
-  padding-right: 0;
-}
-.no-padding-left{
-  padding-left: 0;
-}
-.clearfix{
-  clear: both;
-  display: block;
-}
-.no-margin{
-  margin-left: 0;
-  margin-right: 0;
-}
-.no-margin-child{
-  > .row, > [class*="col-"]{
-    margin-left: 0;
-    margin-right: 0;
-  }
+	position: relative;
+	margin: 0;
+	padding-bottom: 6.4%;
+	min-height: 100%;
+	@media all and (max-width: 1440px){
+		padding-bottom: 12.4%;
+	}
 }

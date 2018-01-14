@@ -5,7 +5,7 @@
 	height: 40px;
 	padding: 8px;
 	background: rgba($navbar-inverse-bg,.7);
-	@include border(null,1px,1px,1px,solid,$navbar-inverse-border);
+	// @include border(null,1px,1px,1px,solid,$navbar-inverse-border);
 	color: $white;
 	z-index: 9;
 	border-radius: 0 0 8px 8px;

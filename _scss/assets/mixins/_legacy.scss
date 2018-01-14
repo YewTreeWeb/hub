@@ -1,0 +1,47 @@
+// CSS Support
+@mixin support( $type, $value, $justify ){
+	@if( $type == 'display' && $value == 'flex'  ){
+
+		@supports #{($type: $value)}{
+			display: $value;
+			flex-direction: $direction;
+			flex-wrap: wrap;
+			align-items: center;
+			@-moz-document url-prefix(){
+				align-items: normal !important;
+			}
+			@if $justify == 'space-evenly'{
+				justify-content: space-between;
+				justify-content: $justify;
+				@supports (-ms-ime-align: auto) {
+					justify-content: space-between;
+				}
+			}
+			@else {
+				justify-content: $justify;
+			}
+		}
+
+	}
+	@else{
+
+		@supports #{($type: $value)}{
+			@content;
+			@if( $justify != 'null' ){
+
+				@if $justify == 'space-evenly'{
+					justify-content: space-between;
+					justify-content: $justify;
+					@supports (-ms-ime-align: auto) {
+						justify-content: space-between;
+					}
+				}
+				@else {
+					justify-content: $justify;
+				}
+
+			}
+		}
+
+	}
+}
